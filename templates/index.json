@@ -47,11 +47,11 @@
         "image_overlay_opacity": 40,
         "image_height": "large",
         "desktop_content_position": "bottom-center",
-        "show_text_box": false,
         "desktop_content_alignment": "center",
+        "show_text_box": false,
         "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
         "show_text_below": false
       }
     },
@@ -62,7 +62,7 @@
           "type": "column",
           "settings": {
             "title": "Comfort",
-            "text": "<p>Soft, cozy materials your cat will love curling up in.<\/p>",
+            "text": "<p>Soft, cozy materials your cat will love curling up in.</p>",
             "link_label": "",
             "link": ""
           }
@@ -71,7 +71,7 @@
           "type": "column",
           "settings": {
             "title": "Trust",
-            "text": "<p>Chosen by thousands of pet owners for safe, durable design.<\/p>",
+            "text": "<p>Chosen by thousands of pet owners for safe, durable design.</p>",
             "link_label": "",
             "link": ""
           }
@@ -80,7 +80,7 @@
           "type": "column",
           "settings": {
             "title": "Style",
-            "text": "<p>Modern, aesthetic products that fit beautifully into your home.<\/p>",
+            "text": "<p>Modern, aesthetic products that fit beautifully into your home.</p>",
             "link_label": "",
             "link": ""
           }
@@ -96,14 +96,67 @@
         "heading_size": "h2",
         "image_width": "third",
         "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 36
+      }
+    },
+    "category_buttons": {
+      "type": "multicolumn",
+      "blocks": {
+        "beds": {
+          "type": "column",
+          "settings": {
+            "title": "Cat Beds",
+            "text": "<p>Explore soft and cozy beds your cat will adore.</p>",
+            "link_label": "Shop Beds",
+            "link": "/collections/cat-beds"
+          }
+        },
+        "toys": {
+          "type": "column",
+          "settings": {
+            "title": "Toys",
+            "text": "<p>Interactive toys to keep your cat active and happy.</p>",
+            "link_label": "Shop Toys",
+            "link": "/collections/cat-toys"
+          }
+        },
+        "scratchers": {
+          "type": "column",
+          "settings": {
+            "title": "Scratchers",
+            "text": "<p>Durable and stylish scratchers for your cat's claws.</p>",
+            "link_label": "Shop Scratchers",
+            "link": "/collections/cat-scratchers"
+          }
+        }
+      },
+      "block_order": [
+        "beds",
+        "toys",
+        "scratchers"
+      ],
+      "settings": {
+        "title": "Shop by Category",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
         "padding_top": 40,
         "padding_bottom": 36
       }
@@ -111,19 +164,19 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Best-Selling Pet Products",
-        "heading_size": "h2",
         "collection": "all",
         "products_to_show": 8,
+        "title": "Best-Selling Pet Products",
+        "heading_size": "h2",
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
         "show_view_all": true,
-        "swipe_on_mobile": false,
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 28,
         "padding_bottom": 36
       }
@@ -170,8 +223,8 @@
       "type": "video",
       "settings": {
         "heading": "Discover Our Story",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "heading_size": "h1",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "description": "",
         "full_width": false,
         "color_scheme": "scheme-1",
@@ -186,7 +239,7 @@
           "type": "column",
           "settings": {
             "title": "Comfort First",
-            "text": "<p>We source the softest materials to ensure every nap is the best nap.<\/p>",
+            "text": "<p>We source the softest materials to ensure every nap is the best nap.</p>",
             "link_label": "",
             "link": ""
           }
@@ -195,7 +248,7 @@
           "type": "column",
           "settings": {
             "title": "Cat-Tested",
-            "text": "<p>All products are tested and approved by real feline friends.<\/p>",
+            "text": "<p>All products are tested and approved by real feline friends.</p>",
             "link_label": "",
             "link": ""
           }
@@ -204,7 +257,7 @@
           "type": "column",
           "settings": {
             "title": "Stylish Design",
-            "text": "<p>Functional doesn't have to be boring. Our pieces look great in any home.<\/p>",
+            "text": "<p>Functional doesn't have to be boring. Our pieces look great in any home.</p>",
             "link_label": "",
             "link": ""
           }
@@ -220,14 +273,14 @@
         "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
+        "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -236,6 +289,7 @@
   "order": [
     "image_banner",
     "reasons_multicolumn",
+    "category_buttons",
     "featured_collection",
     "collage",
     "video",
