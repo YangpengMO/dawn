@@ -105,60 +105,35 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 40,
-        "padding_bottom": 36
+        "padding_bottom": 20
       }
     },
-    "category_buttons": {
-      "type": "multicolumn",
+    "promo_banner": {
+      "type": "rich-text",
       "blocks": {
-        "beds": {
-          "type": "column",
+        "heading": {
+          "type": "heading",
           "settings": {
-            "title": "Cat Beds",
-            "text": "<p>Explore soft and cozy beds your cat will adore.</p>",
-            "link_label": "Shop Beds",
-            "link": "/collections/cat-beds"
+            "heading": "Limited Time Offer",
+            "heading_size": "h2"
           }
         },
-        "toys": {
-          "type": "column",
+        "text": {
+          "type": "text",
           "settings": {
-            "title": "Toys",
-            "text": "<p>Interactive toys to keep your cat active and happy.</p>",
-            "link_label": "Shop Toys",
-            "link": "/collections/cat-toys"
-          }
-        },
-        "scratchers": {
-          "type": "column",
-          "settings": {
-            "title": "Scratchers",
-            "text": "<p>Durable and stylish scratchers for your cat's claws.</p>",
-            "link_label": "Shop Scratchers",
-            "link": "/collections/cat-scratchers"
+            "text": "<p>Get 10% off your first order – use code <strong>WELCOME10</strong> at checkout.</p>"
           }
         }
       },
       "block_order": [
-        "beds",
-        "toys",
-        "scratchers"
+        "heading",
+        "text"
       ],
       "settings": {
-        "title": "Shop by Category",
-        "heading_size": "h2",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
         "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 40,
-        "padding_bottom": 36
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
       }
     },
     "featured_collection": {
@@ -289,7 +264,7 @@
   "order": [
     "image_banner",
     "reasons_multicolumn",
-    "category_buttons",
+    "promo_banner",
     "featured_collection",
     "collage",
     "video",
