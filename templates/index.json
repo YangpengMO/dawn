@@ -140,25 +140,6 @@
         "padding_bottom": 20
       }
     },
-    "category_buttons": {
-      "type": "multicolumn",
-      "settings": {
-        "title": "Shop by Category",
-        "heading_size": "h2",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 40,
-        "padding_bottom": 36
-      }
-    },
     "category_overlay": {
       "type": "category-overlay",
       "blocks": {
@@ -198,7 +179,7 @@
       "type": "featured-collection",
       "settings": {
         "collection": "all",
-        "products_to_show": 8,
+        "products_to_show": 4,
         "title": "Best-Selling Pet Products",
         "heading_size": "h2",
         "description": "",
@@ -333,7 +314,6 @@
     "image_banner",
     "reasons_multicolumn",
     "promo_banner",
-    "category_buttons",
     "category_overlay",
     "featured_collection",
     "collage",
