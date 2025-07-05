@@ -193,6 +193,41 @@
         "padding_bottom": 36
       }
     },
+    "category_overlay": {
+      "type": "category-overlay",
+      "blocks": {
+        "cat_beds": {
+          "type": "category",
+          "settings": {
+            "title": "Cat Beds",
+            "link": "/collections/cat-beds",
+            "image": "shopify://shop_images/cat_playing_compressed.jpg",
+          }
+        },
+        "toys": {
+          "type": "category",
+          "settings": {
+            "title": "Toys",
+            "link": "/collections/cat-toys",
+            "image": "shopify://shop_images/cat_playing_compressed.jpg",
+          }
+        },
+        "scratchers": {
+          "type": "category",
+          "settings": {
+            "title": "Scratchers",
+            "link": "/collections/cat-scratchers",
+            "image": "shopify://shop_images/cat_playing_compressed.jpg",
+          }
+        }
+      },
+      "block_order": [
+        "cat_beds",
+        "toys",
+        "scratchers"
+      ],
+      "settings": {}
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -333,6 +368,7 @@
     "reasons_multicolumn",
     "promo_banner",
     "category_buttons",
+    "category_overlay",
     "featured_collection",
     "collage",
     "video",
