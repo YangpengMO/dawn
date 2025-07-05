@@ -142,30 +142,6 @@
     },
     "category_buttons": {
       "type": "multicolumn",
-      "blocks": {
-        "toys": {
-          "type": "column",
-          "settings": {
-            "title": "Toys",
-            "text": "<p>Interactive toys to keep your cat active and happy.</p>",
-            "link_label": "Shop Toys",
-            "link": "/collections/cat-toys"
-          }
-        },
-        "scratchers": {
-          "type": "column",
-          "settings": {
-            "title": "Scratchers",
-            "text": "<p>Durable and stylish scratchers for your cat's claws.</p>",
-            "link_label": "Shop Scratchers",
-            "link": "/collections/cat-scratchers"
-          }
-        }
-      },
-      "block_order": [
-        "toys",
-        "scratchers"
-      ],
       "settings": {
         "title": "Shop by Category",
         "heading_size": "h2",
@@ -182,39 +158,6 @@
         "padding_top": 40,
         "padding_bottom": 36
       }
-    },
-    "category_overlay_dhQz4h": {
-      "type": "category-overlay",
-      "blocks": {
-        "category_b4K9Tg": {
-          "type": "category",
-          "settings": {
-            "title": "Cat Beds",
-            "link": "/collections/cat-beds"
-          }
-        },
-        "category_bajkqN": {
-          "type": "category",
-          "settings": {
-            "title": "Toys",
-            "link": "/collections/cat-toys"
-          }
-        },
-        "category_36hy9c": {
-          "type": "category",
-          "settings": {
-            "title": "Scratchers",
-            "link": "/collections/cat-scratchers"
-          }
-        }
-      },
-      "block_order": [
-        "category_b4K9Tg",
-        "category_bajkqN",
-        "category_36hy9c"
-      ],
-      "name": "Category Overlay",
-      "settings": {}
     },
     "category_overlay": {
       "type": "category-overlay",
@@ -391,7 +334,6 @@
     "reasons_multicolumn",
     "promo_banner",
     "category_buttons",
-    "category_overlay_dhQz4h",
     "category_overlay",
     "featured_collection",
     "collage",
