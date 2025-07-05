@@ -1,6 +1,110 @@
+{% stylesheet %}
+.category-overlay {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.category-overlay__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.category-overlay__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.category-overlay__link {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.category-overlay__item:hover .category-overlay__link {
+  opacity: 1;
+}
+{% endstylesheet %}
+
+<div class="category-overlay">
+  {% for block in section.blocks %}
+    <div class="category-overlay__item">
+      {% if block.settings.image %}
+        <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}" class="category-overlay__image">
+      {% endif %}
+      {% if block.settings.link %}
+        <a href="{{ block.settings.link }}" class="category-overlay__link">
+          {{ block.settings.title }}
+        </a>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Category Overlay",
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Cat Beds"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "settings": [],
+  "presets": [
+    {
+      "name": "Category Overlay",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "title": "Cat Beds",
+            "link": "/collections/cat-beds"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Toys",
+            "link": "/collections/cat-toys"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Scratchers",
+            "link": "/collections/cat-scratchers"
+          }
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
