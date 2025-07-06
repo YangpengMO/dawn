@@ -63,7 +63,7 @@
         "column1": {
           "type": "column",
           "settings": {
-            "title": "Comfort",
+            "title": "",
             "text": "<p>Soft, cozy materials your cat will love curling up in.</p>",
             "link_label": "",
             "link": ""
@@ -72,7 +72,7 @@
         "column2": {
           "type": "column",
           "settings": {
-            "title": "Trust",
+            "title": "",
             "text": "<p>Chosen by thousands of pet owners for safe, durable design.</p>",
             "link_label": "",
             "link": ""
@@ -81,7 +81,7 @@
         "column3": {
           "type": "column",
           "settings": {
-            "title": "Style",
+            "title": "",
             "text": "<p>Modern, aesthetic products that fit beautifully into your home.</p>",
             "link_label": "",
             "link": ""
