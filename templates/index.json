@@ -110,36 +110,6 @@
         "padding_bottom": 36
       }
     },
-    "promo_banner": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Limited Time Offer",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Get 10% off your first order – use code <strong>WELCOME10</strong> at checkout.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 20,
-        "padding_bottom": 20
-      }
-    },
     "category_overlay": {
       "type": "category-overlay",
       "blocks": {
@@ -177,6 +147,36 @@
         "title": "Shop by Category"
       }
     },
+    "promo_banner": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Limited Time Offer",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get 10% off your first order – use code <strong>WELCOME10</strong> at checkout.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -204,6 +204,42 @@
         "padding_top": 28,
         "padding_bottom": 36
       }
+    },
+    "customer_reviews_n4BLe9": {
+      "type": "customer-reviews",
+      "blocks": {
+        "review_kyJXKe": {
+          "type": "review",
+          "settings": {
+            "text": "My cat instantly fell in love with the bed. Super soft and cozy.",
+            "author": "Emily R."
+          }
+        },
+        "review_wkmne4": {
+          "type": "review",
+          "settings": {
+            "text": "Fast shipping and the product looks great in my living room.",
+            "author": "Jason M."
+          }
+        },
+        "review_ahBekY": {
+          "type": "review",
+          "settings": {
+            "text": "Durable and well-made. Our kitten uses it every day.",
+            "author": "Verified Buyer"
+          }
+        }
+      },
+      "block_order": [
+        "review_kyJXKe",
+        "review_wkmne4",
+        "review_ahBekY"
+      ],
+      "name": "Customer Reviews Carousel",
+      "settings": {
+        "button_label": "Read More Reviews",
+        "button_link": "/collections/all"
+      }
     }
   },
   "order": [
@@ -211,6 +247,7 @@
     "reasons_multicolumn",
     "category_overlay",
     "promo_banner",
-    "featured_collection"
+    "featured_collection",
+    "customer_reviews_n4BLe9"
   ]
 }
