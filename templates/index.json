@@ -63,8 +63,6 @@
         "column1": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/eric-han-WJ6fmN1D-h0-unsplash.jpg",
-            "title": "Comfort",
             "text": "<p>Soft, cozy materials your cat will love curling up in.</p>",
             "link_label": "",
             "link": ""
@@ -73,7 +71,6 @@
         "column2": {
           "type": "column",
           "settings": {
-            "title": "Trust",
             "text": "<p>Chosen by thousands of pet owners for safe, durable design.</p>",
             "link_label": "",
             "link": ""
@@ -82,7 +79,6 @@
         "column3": {
           "type": "column",
           "settings": {
-            "title": "Style",
             "text": "<p>Modern, aesthetic products that fit beautifully into your home.</p>",
             "link_label": "",
             "link": ""
@@ -174,9 +170,7 @@
         "toys",
         "scratchers"
       ],
-      "settings": {
-        "title": "Shop by Category"
-      }
+      "settings": {}
     },
     "featured_collection": {
       "type": "featured-collection",
