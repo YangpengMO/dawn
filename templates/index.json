@@ -205,35 +205,51 @@
         "padding_bottom": 36
       }
     },
-    "customer_reviews_n4BLe9": {
+    "customer_reviews_dRbn9m": {
       "type": "customer-reviews",
       "blocks": {
-        "review_kyJXKe": {
+        "review_9Hi9qC": {
           "type": "review",
           "settings": {
-            "text": "My cat instantly fell in love with the bed. Super soft and cozy.",
+            "text": "I purchased this cat bed for my furry friend, and it exceeded all my expectations! The material is incredibly soft and cushy, and my cat immediately took a liking to it — she hasn't wanted to leave since. It’s sturdy and well-constructed, so I’m not worried about it collapsing even with her jumping in and out. Cleaning is a breeze since the cover is removable and machine washable. Plus, the design is stylish enough to blend seamlessly with my home décor. I’m definitely planning to buy more products from this store in the future!",
             "author": "Emily R."
           }
         },
-        "review_wkmne4": {
+        "review_xt3FHd": {
           "type": "review",
           "settings": {
-            "text": "Fast shipping and the product looks great in my living room.",
+            "text": "The scratching board is top-notch quality — no rough edges or splinters that could hurt my cat’s paws. The thickness and firmness are perfect: sturdy enough for effective scratching, but gentle enough on her claws. After a few weeks, it already shows clear scratch marks, which means my cat loves it and my furniture is safe! The packaging was neat, and the shipping was fast. Customer service was friendly and helpful. Highly recommend this for any cat owner!",
             "author": "Jason M."
           }
         },
-        "review_ahBekY": {
+        "review_N3rLaL": {
           "type": "review",
           "settings": {
-            "text": "Durable and well-made. Our kitten uses it every day.",
+            "text": "I bought this cat toy set, and it’s been a huge hit! The toys come in various fun shapes and bright colors, all made with safe, non-toxic materials that feel great to touch. My cat enjoys chasing and biting them and never seems bored. The feather teaser wand is a favorite — my cat chases it endlessly every day! These toys are durable too; after months of play, they’re still in great shape. The packaging was careful, and delivery was quick. Overall, a fantastic shopping experience!",
+            "author": "Verified Buyer"
+          }
+        },
+        "review_FV73cx": {
+          "type": "review",
+          "settings": {
+            "text": "The cat bed recommended by the seller is really well designed — it’s breathable and keeps my cat warm during cold days. She feels safe and cozy whenever she’s inside. The neutral color fits perfectly in my living room without clashing with the décor. The seller was prompt with shipping and answered all my questions patiently. I’m very happy with my purchase and will keep supporting this store!",
+            "author": "Verified Buyer"
+          }
+        },
+        "review_hnPcy6": {
+          "type": "review",
+          "settings": {
+            "text": "Right after receiving the scratching board, I let my cat try it, and she instantly loved it. The board is solid and durable with eco-friendly materials and no unpleasant odors. The design is sleek and doesn’t disrupt my home’s aesthetic at all. Shipping was fast and the package arrived intact. Customer service was excellent as well. I highly recommend this product to anyone looking for a reliable scratching solution!",
             "author": "Verified Buyer"
           }
         }
       },
       "block_order": [
-        "review_kyJXKe",
-        "review_wkmne4",
-        "review_ahBekY"
+        "review_9Hi9qC",
+        "review_xt3FHd",
+        "review_N3rLaL",
+        "review_FV73cx",
+        "review_hnPcy6"
       ],
       "name": "Customer Reviews Carousel",
       "settings": {
@@ -248,6 +264,6 @@
     "category_overlay",
     "promo_banner",
     "featured_collection",
-    "customer_reviews_n4BLe9"
+    "customer_reviews_dRbn9m"
   ]
 }
