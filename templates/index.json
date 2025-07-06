@@ -63,6 +63,7 @@
         "column1": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/eric-han-WJ6fmN1D-h0-unsplash.jpg",
             "title": "Comfort",
             "text": "<p>Soft, cozy materials your cat will love curling up in.</p>",
             "link_label": "",
@@ -173,7 +174,9 @@
         "toys",
         "scratchers"
       ],
-      "settings": {}
+      "settings": {
+        "title": "Shop by Category"
+      }
     },
     "featured_collection": {
       "type": "featured-collection",
