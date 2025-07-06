@@ -1,6 +1,103 @@
+{% stylesheet %}
+.customer-reviews {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  padding: 40px 0;
+}
+.review-card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.review-stars {
+  color: #f5a623;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.review-text {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 12px;
+}
+.review-author {
+  font-size: 14px;
+  color: #777;
+}
+{% endstylesheet %}
+
+<div class="customer-reviews">
+  {% for block in section.blocks %}
+    <div class="review-card">
+      <div class="review-stars">
+        {% for i in (1..5) %}
+          ⭐
+        {% endfor %}
+      </div>
+      <div class="review-text">
+        {{ block.settings.text }}
+      </div>
+      <div class="review-author">
+        – {{ block.settings.author }}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Customer Reviews",
+  "max_blocks": 6,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Review Text",
+          "default": "This product is amazing! My cat loves it so much."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Reviewer Name",
+          "default": "Verified Buyer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer Reviews",
+      "category": "Testimonials",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "text": "My cat instantly fell in love with the bed. Super soft and cozy.",
+            "author": "Emily R."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "Fast shipping, great quality. Looks great in my living room!",
+            "author": "Jason M."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "Durable and well-made. Our kitten uses it every day.",
+            "author": "Verified Buyer"
+          }
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
