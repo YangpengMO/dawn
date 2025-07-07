@@ -56,13 +56,13 @@
 <div class="customer-reviews-carousel" id="customer-reviews-carousel">
   {% for block in section.blocks %}
     <div class="review-slide{% if forloop.first %} active{% endif %}">
-      <div class="review-stars">
-      {% for i in (1..5) %}
-       <svg class="star-icon" viewBox="0 0 20 20" fill="currentColor">
-       <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.562-.955L10 0l2.951 5.955 6.562.955-4.757 4.635 1.122 6.545z"/>
-       </svg>
-       {% endfor %}
-       </div>
+<div class="review-stars">
+  {% for i in (1..5) %}
+    <svg class="star-icon" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.562-.955L10 0l2.951 5.955 6.562.955-4.757 4.635 1.122 6.545z"/>
+    </svg>
+  {% endfor %}
+</div>
       <div class="review-text">{{ block.settings.text }}</div>
       <div class="review-author">– {{ block.settings.author }}</div>
     </div>
