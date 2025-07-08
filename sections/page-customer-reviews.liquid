@@ -1,82 +1,39 @@
+{% comment %}
+  Section: All Customer Reviews (Fixed - No Judge.me Snippet Needed)
+{% endcomment %}
+
 <style>
-.reviews-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
-.reviews-title {
-  text-align: center;
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 40px;
-}
-.review-item {
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  padding: 24px;
-  margin-bottom: 24px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-}
-.review-stars {
-  color: #f5a623;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-.review-text {
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 12px;
-  line-height: 1.6;
-}
-.review-author {
-  font-size: 14px;
-  color: #777;
-}
+  .all-reviews-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .all-reviews-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
 </style>
 
-<div class="reviews-container">
-  <h1 class="reviews-title">What Our Customers Say</h1>
+<div class="all-reviews-wrapper">
+  <h1 class="all-reviews-title">What Our Customers Are Saying</h1>
 
-  <div class="review-item">
-    <div class="review-stars">★★★★★</div>
-    <div class="review-text">I purchased this cat bed for my furry friend, and it exceeded all my expectations! The material is soft, my cat sleeps in it every day, and it blends beautifully into my home.</div>
-    <div class="review-author">– Emily R.</div>
-  </div>
-
-  <div class="review-item">
-    <div class="review-stars">★★★★★</div>
-    <div class="review-text">The scratching board is super sturdy and finally stopped my cat from destroying the sofa! Great build quality and fast delivery.</div>
-    <div class="review-author">– Jason M.</div>
-  </div>
-
-  <div class="review-item">
-    <div class="review-stars">★★★★★</div>
-    <div class="review-text">The toy set is colorful, fun, and safe. My kitten especially loves the feather wand — she plays with it every day!</div>
-    <div class="review-author">– Verified Buyer</div>
-  </div>
-
-  <div class="review-item">
-    <div class="review-stars">★★★★★</div>
-    <div class="review-text">Very pleased with the quality. The product arrived quickly and was exactly as described. Will definitely buy again!</div>
-    <div class="review-author">– Verified Buyer</div>
-  </div>
-
-  <div class="review-item">
-    <div class="review-stars">★★★★★</div>
-    <div class="review-text">My cat absolutely adores this bed. It’s soft, cozy, and she curls up in it all day. Looks stylish in our living room, too.</div>
-    <div class="review-author">– Sarah L.</div>
-  </div>
+  <!-- ✅ 正确加载 Judge.me 全部评论 -->
+  <div class="jdgm-all-reviews-widget"></div>
+  <script defer src="https://cdn.judge.me/widget/main.js"></script>
 </div>
 
 {% schema %}
 {
-  "name": "Customer Reviews",
+  "name": "All Customer Reviews",
   "tag": "section",
   "settings": [],
   "presets": [
     {
-      "name": "Customer Reviews Static",
+      "name": "All Reviews Page",
       "category": "Custom"
     }
   ]
