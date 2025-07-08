@@ -1,40 +1,185 @@
-{% comment %}
-  Section: All Customer Reviews (Fixed - No Judge.me Snippet Needed)
-{% endcomment %}
+{% stylesheet %}
+.customer-reviews-carousel {
+  position: relative;
+  padding: 40px 0;
+  text-align: center;
+}
+.review-slide {
+  display: none;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #f9f9f9;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.review-slide.active {
+  display: block;
+}
+.review-stars {
+  color: #f5a623;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.review-text {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 12px;
+}
+.review-author {
+  font-size: 14px;
+  color: #777;
+}
+.review-dots {
+  margin-top: 16px;
+}
+.review-dots span {
+  cursor: pointer;
+  font-size: 20px;
+  color: #ccc;
+  padding: 0 5px;
+}
+.review-dots span.active {
+  color: #333;
+}
+.more-reviews-btn {
+  margin-top: 24px;
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.star-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 2px;
+  color: #f5a623;
+  display: inline-block;
+  vertical-align: middle;
+}
+{% endstylesheet %}
 
-<style>
-  .all-reviews-wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  }
-
-  .all-reviews-title {
-    text-align: center;
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 40px;
-  }
-</style>
-
-<div class="all-reviews-wrapper">
-  <h1 class="all-reviews-title">What Our Customers Are Saying</h1>
-
-  <!-- ✅ 正确加载 Judge.me 全部评论 -->
-  <div class="jdgm-all-reviews-widget"></div>
-  <script defer src="https://cdn.judge.me/widget/main.js"></script>
+<div class="customer-reviews-carousel" id="customer-reviews-carousel">
+  {% for block in section.blocks %}
+    <div class="review-slide{% if forloop.first %} active{% endif %}">
+<div class="review-stars">
+  {% for i in (1..5) %}
+    <svg class="star-icon" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.562-.955L10 0l2.951 5.955 6.562.955-4.757 4.635 1.122 6.545z"/>
+    </svg>
+  {% endfor %}
 </div>
+      <div class="review-text">{{ block.settings.text }}</div>
+      <div class="review-author">– {{ block.settings.author }}</div>
+    </div>
+  {% endfor %}
+
+  <div class="review-dots">
+    {% for block in section.blocks %}
+      <span class="{% if forloop.first %}active{% endif %}" onclick="showReviewSlide({{ forloop.index0 }})">●</span>
+    {% endfor %}
+  </div>
+
+  {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+    <a class="more-reviews-btn" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+  {% endif %}
+</div>
+
+<script>
+  const slides = document.querySelectorAll('#customer-reviews-carousel .review-slide');
+  const dots = document.querySelectorAll('#customer-reviews-carousel .review-dots span');
+  let current = 0;
+
+  function showReviewSlide(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+    current = index;
+  }
+</script>
 
 {% schema %}
 {
-  "name": "All Customer Reviews",
-  "tag": "section",
-  "settings": [],
+  "name": "Customer Reviews Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "More Reviews Button Text",
+      "default": "Read More Reviews"
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "Button Link URL",
+      "default": "/collections/all"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Review Text",
+          "default": "My cat sleeps better than I do now!"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Reviewer Name",
+          "default": "Verified Buyer"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
   "presets": [
     {
-      "name": "All Reviews Page",
-      "category": "Custom"
+      "name": "Customer Reviews Carousel",
+      "category": "Testimonials",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "text": "I purchased this cat bed for my furry friend, and it exceeded all my expectations! The material is incredibly soft and cushy, and my cat immediately took a liking to it — she hasn't wanted to leave since. It’s sturdy and well-constructed, so I’m not worried about it collapsing even with her jumping in and out. Cleaning is a breeze since the cover is removable and machine washable. Plus, the design is stylish enough to blend seamlessly with my home décor. I’m definitely planning to buy more products from this store in the future!",
+            "author": "Emily R."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "The scratching board is top-notch quality — no rough edges or splinters that could hurt my cat’s paws. The thickness and firmness are perfect: sturdy enough for effective scratching, but gentle enough on her claws. After a few weeks, it already shows clear scratch marks, which means my cat loves it and my furniture is safe! The packaging was neat, and the shipping was fast. Customer service was friendly and helpful. Highly recommend this for any cat owner!",
+            "author": "Jason M."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "I bought this cat toy set, and it’s been a huge hit! The toys come in various fun shapes and bright colors, all made with safe, non-toxic materials that feel great to touch. My cat enjoys chasing and biting them and never seems bored. The feather teaser wand is a favorite — my cat chases it endlessly every day! These toys are durable too; after months of play, they’re still in great shape. The packaging was careful, and delivery was quick. Overall, a fantastic shopping experience!",
+            "author": "Verified Buyer"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "The cat bed recommended by the seller is really well designed — it’s breathable and keeps my cat warm during cold days. She feels safe and cozy whenever she’s inside. The neutral color fits perfectly in my living room without clashing with the décor. The seller was prompt with shipping and answered all my questions patiently. I’m very happy with my purchase and will keep supporting this store!",
+            "author": "Verified Buyer"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "Right after receiving the scratching board, I let my cat try it, and she instantly loved it. The board is solid and durable with eco-friendly materials and no unpleasant odors. The design is sleek and doesn’t disrupt my home’s aesthetic at all. Shipping was fast and the package arrived intact. Customer service was excellent as well. I highly recommend this product to anyone looking for a reliable scratching solution!",
+            "author": "Verified Buyer"
+          }
+        }
+      ]
     }
   ]
 }
