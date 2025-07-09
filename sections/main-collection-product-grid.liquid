@@ -1,41 +1,40 @@
-{% comment %} CSS & JS Imports with Conditions Optimized {% endcomment %}
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
-{% case section.settings.image_shape %}
-  {% when 'blob' %}
-    {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
-  {% when 'arch' %}
-    {{ 'mask-arch.svg' | inline_asset_content }}
-{% endcase %}
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 
-{% unless section.settings.quick_add == 'none' %}
+{%- unless section.settings.quick_add == 'none' -%}
   {{ 'quick-add.css' | asset_url | stylesheet_tag }}
-  {% if section.settings.quick_add == 'standard' %}
-    {{ 'quick-add.js' | asset_url | script_tag }}
-    {{ 'product-form.js' | asset_url | script_tag }}
-  {% elsif section.settings.quick_add == 'bulk' %}
-    {{ 'quick-add-bulk.js' | asset_url | script_tag }}
-    {{ 'quantity-popover.js' | asset_url | script_tag }}
-    {{ 'price-per-item.js' | asset_url | script_tag }}
-    {{ 'quick-order-list.js' | asset_url | script_tag }}
-  {% endif %}
-{% endunless %}
+{%- endunless -%}
 
-{% style %}
-.section-{{ section.id }}-padding {
-  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-}
+{%- if section.settings.quick_add == 'standard' -%}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 
-@media screen and (min-width: 750px) {
+{%- if section.settings.quick_add == 'bulk' -%}
+  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-}
-{% endstyle %}
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
