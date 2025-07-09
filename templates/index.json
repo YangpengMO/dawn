@@ -9,270 +9,270 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Create a Cozy World for Your Cat",
-            "heading_size": "h0"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Explore premium beds, toys, and scratchers – everything your cat will love.",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Now",
-            "button_link_1": "/collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/cat_playing_compressed.jpg",
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
-      }
-    },
     "reasons_multicolumn": {
-      "type": "multicolumn",
+      "settings": {
+        "padding_top": 40,
+        "background_style": "none",
+        "image_width": "third",
+        "title": "Why Choose Us",
+        "heading_size": "h2",
+        "image_ratio": "adapt",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "button_label": "",
+        "padding_bottom": 36,
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false
+      },
       "blocks": {
         "column1": {
-          "type": "column",
           "settings": {
-            "title": "",
+            "link": "",
+            "link_label": "",
             "text": "<p>Soft, cozy materials your cat will love curling up in.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "<p>Chosen by thousands of pet owners for safe, durable design.</p>",
-            "link_label": "",
-            "link": ""
-          }
+            "title": ""
+          },
+          "type": "column"
         },
         "column3": {
-          "type": "column",
           "settings": {
-            "title": "",
-            "text": "<p>Modern, aesthetic products that fit beautifully into your home.</p>",
+            "link": "",
             "link_label": "",
-            "link": ""
-          }
+            "text": "<p>Modern, aesthetic products that fit beautifully into your home.</p>",
+            "title": ""
+          },
+          "type": "column"
+        },
+        "column2": {
+          "settings": {
+            "link": "",
+            "link_label": "",
+            "text": "<p>Chosen by thousands of pet owners for safe, durable design.</p>",
+            "title": ""
+          },
+          "type": "column"
         }
       },
+      "type": "multicolumn",
       "block_order": [
         "column1",
         "column2",
         "column3"
-      ],
-      "settings": {
-        "title": "Why Choose Us",
-        "heading_size": "h2",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 40,
-        "padding_bottom": 36
-      }
-    },
-    "category_overlay": {
-      "type": "category-overlay",
-      "blocks": {
-        "cat_beds": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/cat_playing_compressed.jpg",
-            "title": "Cat Beds",
-            "link": "/collections/cat-beds"
-          }
-        },
-        "toys": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/cat_playing_compressed.jpg",
-            "title": "Toys",
-            "link": "/collections/cat-toys"
-          }
-        },
-        "scratchers": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/cat_playing_compressed.jpg",
-            "title": "Scratchers",
-            "link": "/collections/cat-scratchers"
-          }
-        }
-      },
-      "block_order": [
-        "cat_beds",
-        "toys",
-        "scratchers"
-      ],
-      "settings": {
-        "title": "Shop by Category"
-      }
-    },
-    "promo_banner": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Limited Time Offer",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Get 10% off your first order – use code <strong>WELCOME10</strong> at checkout.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 20,
-        "padding_bottom": 20
-      }
+      ]
     },
     "featured_collection": {
-      "type": "featured-collection",
       "settings": {
-        "collection": "all",
-        "products_to_show": 4,
-        "title": "Best-Selling Pet Products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
         "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
+        "show_description": false,
+        "products_to_show": 4,
+        "description": "",
         "padding_top": 28,
-        "padding_bottom": 36
-      }
+        "collection": "all",
+        "title": "Best-Selling Pet Products",
+        "show_view_all": false,
+        "enable_desktop_slider": false,
+        "view_all_style": "solid",
+        "image_shape": "default",
+        "heading_size": "h2",
+        "show_rating": false,
+        "full_width": false,
+        "show_vendor": false,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "color_scheme": "scheme-1",
+        "padding_bottom": 36,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "description_style": "body",
+        "swipe_on_mobile": false
+      },
+      "type": "featured-collection"
     },
-    "customer_reviews_dRbn9m": {
-      "type": "customer-reviews",
+    "899856179604056102": {
+      "settings": {
+        "include_margins": true
+      },
       "blocks": {
-        "review_9Hi9qC": {
-          "type": "review",
-          "settings": {
-            "text": "I purchased this cat bed for my furry friend, and it exceeded all my expectations! The material is incredibly soft and cushy, and my cat immediately took a liking to it — she hasn't wanted to leave since. It’s sturdy and well-constructed, so I’m not worried about it collapsing even with her jumping in and out. Cleaning is a breeze since the cover is removable and machine washable. Plus, the design is stylish enough to blend seamlessly with my home décor. I’m definitely planning to buy more products from this store in the future!",
-            "author": "Emily R."
-          }
-        },
-        "review_xt3FHd": {
-          "type": "review",
-          "settings": {
-            "text": "The scratching board is top-notch quality — no rough edges or splinters that could hurt my cat’s paws. The thickness and firmness are perfect: sturdy enough for effective scratching, but gentle enough on her claws. After a few weeks, it already shows clear scratch marks, which means my cat loves it and my furniture is safe! The packaging was neat, and the shipping was fast. Customer service was friendly and helpful. Highly recommend this for any cat owner!",
-            "author": "Jason M."
-          }
-        },
-        "review_N3rLaL": {
-          "type": "review",
-          "settings": {
-            "text": "I bought this cat toy set, and it’s been a huge hit! The toys come in various fun shapes and bright colors, all made with safe, non-toxic materials that feel great to touch. My cat enjoys chasing and biting them and never seems bored. The feather teaser wand is a favorite — my cat chases it endlessly every day! These toys are durable too; after months of play, they’re still in great shape. The packaging was careful, and delivery was quick. Overall, a fantastic shopping experience!",
-            "author": "Verified Buyer"
-          }
-        },
-        "review_FV73cx": {
-          "type": "review",
-          "settings": {
-            "text": "The cat bed recommended by the seller is really well designed — it’s breathable and keeps my cat warm during cold days. She feels safe and cozy whenever she’s inside. The neutral color fits perfectly in my living room without clashing with the décor. The seller was prompt with shipping and answered all my questions patiently. I’m very happy with my purchase and will keep supporting this store!",
-            "author": "Verified Buyer"
-          }
-        },
-        "review_hnPcy6": {
-          "type": "review",
-          "settings": {
-            "text": "Right after receiving the scratching board, I let my cat try it, and she instantly loved it. The board is solid and durable with eco-friendly materials and no unpleasant odors. The design is sleek and doesn’t disrupt my home’s aesthetic at all. Shipping was fast and the package arrived intact. Customer service was excellent as well. I highly recommend this product to anyone looking for a reliable scratching solution!",
-            "author": "Verified Buyer"
-          }
+        "3ed26c2c-45ea-43d7-a559-6a97a541f45b": {
+          "settings": {},
+          "disabled": true,
+          "type": "shopify://apps/dadao-product-reviews/blocks/featured-reviews/3cc4253a-05eb-4164-8778-b76d83ce00cc"
         }
       },
+      "disabled": true,
+      "type": "apps",
+      "block_order": [
+        "3ed26c2c-45ea-43d7-a559-6a97a541f45b"
+      ]
+    },
+    "customer_reviews_dRbn9m": {
+      "settings": {
+        "button_link": "/pages/customer-reviews",
+        "button_label": "Read More Reviews"
+      },
+      "blocks": {
+        "review_N3rLaL": {
+          "settings": {
+            "author": "Verified Buyer",
+            "text": "I bought this cat toy set, and it’s been a huge hit! The toys come in various fun shapes and bright colors, all made with safe, non-toxic materials that feel great to touch. My cat enjoys chasing and biting them and never seems bored. The feather teaser wand is a favorite — my cat chases it endlessly every day! These toys are durable too; after months of play, they’re still in great shape. The packaging was careful, and delivery was quick. Overall, a fantastic shopping experience!"
+          },
+          "type": "review"
+        },
+        "review_FV73cx": {
+          "settings": {
+            "author": "Verified Buyer",
+            "text": "The cat bed recommended by the seller is really well designed — it’s breathable and keeps my cat warm during cold days. She feels safe and cozy whenever she’s inside. The neutral color fits perfectly in my living room without clashing with the décor. The seller was prompt with shipping and answered all my questions patiently. I’m very happy with my purchase and will keep supporting this store!"
+          },
+          "type": "review"
+        },
+        "review_xt3FHd": {
+          "settings": {
+            "author": "Jason M.",
+            "text": "The scratching board is top-notch quality — no rough edges or splinters that could hurt my cat’s paws. The thickness and firmness are perfect: sturdy enough for effective scratching, but gentle enough on her claws. After a few weeks, it already shows clear scratch marks, which means my cat loves it and my furniture is safe! The packaging was neat, and the shipping was fast. Customer service was friendly and helpful. Highly recommend this for any cat owner!"
+          },
+          "type": "review"
+        },
+        "review_9Hi9qC": {
+          "settings": {
+            "author": "Emily R.",
+            "text": "I purchased this cat bed for my furry friend, and it exceeded all my expectations! The material is incredibly soft and cushy, and my cat immediately took a liking to it — she hasn't wanted to leave since. It’s sturdy and well-constructed, so I’m not worried about it collapsing even with her jumping in and out. Cleaning is a breeze since the cover is removable and machine washable. Plus, the design is stylish enough to blend seamlessly with my home décor. I’m definitely planning to buy more products from this store in the future!"
+          },
+          "type": "review"
+        },
+        "review_hnPcy6": {
+          "settings": {
+            "author": "Verified Buyer",
+            "text": "Right after receiving the scratching board, I let my cat try it, and she instantly loved it. The board is solid and durable with eco-friendly materials and no unpleasant odors. The design is sleek and doesn’t disrupt my home’s aesthetic at all. Shipping was fast and the package arrived intact. Customer service was excellent as well. I highly recommend this product to anyone looking for a reliable scratching solution!"
+          },
+          "type": "review"
+        }
+      },
+      "name": "Customer Reviews Carousel",
+      "type": "customer-reviews",
       "block_order": [
         "review_9Hi9qC",
         "review_xt3FHd",
         "review_N3rLaL",
         "review_FV73cx",
         "review_hnPcy6"
-      ],
-      "name": "Customer Reviews Carousel",
-      "settings": {
-        "button_label": "Read More Reviews",
-        "button_link": "/pages/customer-reviews"
-      }
+      ]
     },
-    "899856179604056102": {
-      "type": "apps",
+    "image_banner": {
+      "settings": {
+        "desktop_content_position": "bottom-center",
+        "show_text_box": false,
+        "image": "shopify://shop_images/cat_playing_compressed.jpg",
+        "image_height": "large",
+        "image_behavior": "none",
+        "stack_images_on_mobile": false,
+        "show_text_below": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "center",
+        "image_overlay_opacity": 40
+      },
       "blocks": {
-        "3ed26c2c-45ea-43d7-a559-6a97a541f45b": {
-          "type": "shopify://apps/dadao-product-reviews/blocks/featured-reviews/3cc4253a-05eb-4164-8778-b76d83ce00cc",
-          "disabled": true,
-          "settings": {}
+        "button": {
+          "settings": {
+            "button_style_secondary_1": false,
+            "button_style_secondary_2": false,
+            "button_link_1": "/collections/all",
+            "button_label_1": "Shop Now",
+            "button_label_2": "",
+            "button_link_2": ""
+          },
+          "type": "buttons"
+        },
+        "heading": {
+          "settings": {
+            "heading": "Create a Cozy World for Your Cat",
+            "heading_size": "h0"
+          },
+          "type": "heading"
+        },
+        "text": {
+          "settings": {
+            "text_style": "body",
+            "text": "Explore premium beds, toys, and scratchers – everything your cat will love."
+          },
+          "type": "text"
         }
       },
+      "type": "image-banner",
       "block_order": [
-        "3ed26c2c-45ea-43d7-a559-6a97a541f45b"
-      ],
-      "disabled": true,
+        "heading",
+        "text",
+        "button"
+      ]
+    },
+    "category_overlay": {
       "settings": {
-        "include_margins": true
-      }
+        "title": "Shop by Category"
+      },
+      "blocks": {
+        "cat_beds": {
+          "settings": {
+            "image": "shopify://shop_images/cat_playing_compressed.jpg",
+            "link": "/collections/cat-beds",
+            "title": "Cat Beds"
+          },
+          "type": "category"
+        },
+        "scratchers": {
+          "settings": {
+            "image": "shopify://shop_images/cat_playing_compressed.jpg",
+            "link": "/collections/cat-scratchers",
+            "title": "Scratchers"
+          },
+          "type": "category"
+        },
+        "toys": {
+          "settings": {
+            "image": "shopify://shop_images/cat_playing_compressed.jpg",
+            "link": "/collections/cat-toys",
+            "title": "Toys"
+          },
+          "type": "category"
+        }
+      },
+      "type": "category-overlay",
+      "block_order": [
+        "cat_beds",
+        "toys",
+        "scratchers"
+      ]
+    },
+    "promo_banner": {
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "padding_top": 20,
+        "color_scheme": "scheme-1",
+        "padding_bottom": 20
+      },
+      "blocks": {
+        "heading": {
+          "settings": {
+            "heading": "Limited Time Offer",
+            "heading_size": "h2"
+          },
+          "type": "heading"
+        },
+        "text": {
+          "settings": {
+            "text": "<p>Get 10% off your first order – use code <strong>WELCOME10</strong> at checkout.</p>"
+          },
+          "type": "text"
+        }
+      },
+      "type": "rich-text",
+      "block_order": [
+        "heading",
+        "text"
+      ]
     }
   },
   "order": [
