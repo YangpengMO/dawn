@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -9,10 +18,33 @@
     },
     "form": {
       "type": "contact-form",
+      "settings": {}
+    },
+    "faq_KFWeCn": {
+      "type": "FAQ",
+      "blocks": {
+        "faq_item_zPPR4g": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "We accept returns within 30 days. Please visit our Returns Policy page for more info."
+          }
+        },
+        "faq_item_djmd78": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "We accept returns within 30 days. Please visit our Returns Policy page for more info."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_zPPR4g",
+        "faq_item_djmd78"
+      ],
+      "name": "FAQ Section",
       "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "color_scheme": "scheme-1",
+        "title": "Frequently Asked Questions",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -20,6 +52,7 @@
   },
   "order": [
     "main",
-    "form"
+    "form",
+    "faq_KFWeCn"
   ]
 }
