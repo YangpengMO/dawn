@@ -25,23 +25,6 @@
       },
       "type": "main-collection-product-grid"
     },
-    "429246105929366009": {
-      "settings": {
-        "include_margins": true
-      },
-      "blocks": {
-        "82300dc0-9257-4a4f-a2e4-e385cb0b2302": {
-          "settings": {},
-          "disabled": true,
-          "type": "shopify://apps/dadao-product-reviews/blocks/featured-reviews/3cc4253a-05eb-4164-8778-b76d83ce00cc"
-        }
-      },
-      "disabled": true,
-      "type": "apps",
-      "block_order": [
-        "82300dc0-9257-4a4f-a2e4-e385cb0b2302"
-      ]
-    },
     "banner": {
       "settings": {
         "show_collection_image": false,
@@ -53,7 +36,6 @@
   },
   "order": [
     "banner",
-    "product-grid",
-    "429246105929366009"
+    "product-grid"
   ]
 }
