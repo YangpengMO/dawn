@@ -25,17 +25,10 @@
       },
       "type": "main-collection-product-grid"
     },
-    "banner": {
-      "settings": {
-        "show_collection_image": false,
-        "show_collection_description": true,
-        "color_scheme": "scheme-1"
-      },
-      "type": "main-collection-banner"
-    }
+
   },
   "order": [
-    "banner",
+    //"banner",
     "product-grid"
   ]
 }
