@@ -56,7 +56,7 @@
   color: #333;
   line-height: 1.6;
   margin-bottom: 16px;
-  min-height: 72px; /* 保证高度一致 */
+  min-height: 72px;
 }
 
 .review-author {
@@ -84,41 +84,9 @@
   background: #000;
   outline: none;
 }
-
-/* 添加左右箭头按钮 */
-.review-carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(34, 34, 34, 0.7);
-  border: none;
-  color: white;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  cursor: pointer;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease;
-  z-index: 10;
-}
-.review-carousel-btn:hover,
-.review-carousel-btn:focus {
-  background: #000;
-  outline: none;
-}
-.review-carousel-btn.left {
-  left: 8px;
-}
-.review-carousel-btn.right {
-  right: 8px;
-}
 {% endstylesheet %}
 
 <div class="customer-reviews-carousel">
-  <button class="review-carousel-btn left" aria-label="Scroll reviews left">&#9664;</button>
   <div class="review-slider" id="reviewSlider" tabindex="0" role="list">
     {% for block in section.blocks %}
       <div class="review-card" role="listitem">
@@ -133,7 +101,6 @@
       </div>
     {% endfor %}
   </div>
-  <button class="review-carousel-btn right" aria-label="Scroll reviews right">&#9654;</button>
 
   {% if section.settings.button_label != blank and section.settings.button_link != blank %}
     <div class="text-center">
@@ -144,55 +111,36 @@
 
 <script>
   const reviewSlider = document.getElementById("reviewSlider");
-  const btnLeft = document.querySelector(".review-carousel-btn.left");
-  const btnRight = document.querySelector(".review-carousel-btn.right");
   const scrollStep = 320;
   let autoScrollInterval;
-
-  function scrollLeft() {
-    reviewSlider.scrollBy({ left: -scrollStep, behavior: 'smooth' });
-  }
-
-  function scrollRight() {
-    reviewSlider.scrollBy({ left: scrollStep, behavior: 'smooth' });
-  }
-
-  btnLeft.addEventListener("click", () => {
-    scrollLeft();
-    resetAutoScroll();
-  });
-
-  btnRight.addEventListener("click", () => {
-    scrollRight();
-    resetAutoScroll();
-  });
 
   function autoScroll() {
     if (reviewSlider.scrollLeft + reviewSlider.clientWidth >= reviewSlider.scrollWidth - 10) {
       reviewSlider.scrollTo({ left: 0, behavior: "smooth" });
     } else {
-      scrollRight();
+      reviewSlider.scrollBy({ left: scrollStep, behavior: "smooth" });
     }
-  }
-
-  function resetAutoScroll() {
-    clearInterval(autoScrollInterval);
-    autoScrollInterval = setInterval(autoScroll, 5000);
   }
 
   autoScrollInterval = setInterval(autoScroll, 5000);
 
-  // 可选：键盘左右键控制滚动，增强可访问性
-  reviewSlider.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") {
-      scrollLeft();
-      resetAutoScroll();
-    } else if (e.key === "ArrowRight") {
-      scrollRight();
-      resetAutoScroll();
+  // 用户主动滚动时暂停自动滚动，2秒后恢复
+  let isUserInteracting = false;
+  let interactionTimeout;
+
+  reviewSlider.addEventListener('scroll', () => {
+    if (!isUserInteracting) {
+      isUserInteracting = true;
+      clearInterval(autoScrollInterval);
     }
+    clearTimeout(interactionTimeout);
+    interactionTimeout = setTimeout(() => {
+      isUserInteracting = false;
+      autoScrollInterval = setInterval(autoScroll, 5000);
+    }, 2000);
   });
 </script>
+
 {% schema %}
 {
   "name": "Customer Reviews Carousel",
