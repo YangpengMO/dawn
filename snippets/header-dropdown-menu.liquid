@@ -2,6 +2,50 @@
   Renders a standard dropdown style menu for the header (hover version).
 {% endcomment %}
 
+<style>
+  .menu-item {
+    position: relative;
+  }
+
+  .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    min-width: 200px;
+    z-index: 999;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  .menu-item:hover > .submenu {
+    display: block;
+  }
+
+  .submenu li {
+    padding: 0.4rem 1.5rem;
+    white-space: nowrap;
+  }
+
+  .submenu .submenu {
+    left: 100%;
+    top: 0;
+  }
+
+  .submenu .menu-item {
+    position: relative;
+  }
+
+  /* ✅ 去掉圆点 */
+  .list-menu,
+  .list-menu li,
+  .submenu,
+  .submenu li {
+    list-style: none;
+  }
+</style>
+
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
