@@ -4,7 +4,6 @@
   background-color: #fefefe;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   overflow: hidden;
-  position: relative;
 }
 
 .review-slider {
@@ -13,26 +12,24 @@
   scroll-behavior: smooth;
   gap: 24px;
   padding-bottom: 8px;
-  scrollbar-width: none; /* Firefox */
 }
+
 .review-slider::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
 }
 
 .review-card {
   flex: 0 0 auto;
   width: 300px;
-  background: #fff;
+  background: #ffffff;
   border-radius: 16px;
   border: 1px solid #e0e0e0;
   padding: 24px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
 }
 .review-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
 }
 
 .review-avatar {
@@ -41,60 +38,54 @@
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 12px;
-  border: 2px solid #fbbc04;
 }
 
 .review-stars {
   color: #fbbc04;
   font-size: 18px;
   margin: 8px 0;
-  user-select: none;
 }
 
 .review-text {
   font-size: 16px;
   color: #333;
-  line-height: 1.6;
-  margin-bottom: 16px;
-  min-height: 72px;
+  line-height: 1.5;
+  margin-bottom: 12px;
 }
 
 .review-author {
   font-size: 14px;
   color: #666;
-  font-weight: 600;
-  text-align: right;
+  font-weight: 500;
 }
 
 .more-reviews-btn {
-  margin: 32px auto 0;
+  margin-top: 32px;
   display: inline-block;
   background: #222;
   color: #fff;
-  padding: 12px 28px;
+  padding: 10px 24px;
   border-radius: 8px;
   font-size: 15px;
   text-decoration: none;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-  user-select: none;
+  transition: background 0.3s;
 }
-.more-reviews-btn:hover,
-.more-reviews-btn:focus {
+.more-reviews-btn:hover {
   background: #000;
-  outline: none;
 }
 {% endstylesheet %}
 
 <div class="customer-reviews-carousel">
-  <div class="review-slider" id="reviewSlider" tabindex="0" role="list">
+  <div class="review-slider" id="reviewSlider">
     {% for block in section.blocks %}
-      <div class="review-card" role="listitem">
+      <div class="review-card">
         {% if block.settings.avatar != blank %}
-          <img src="{{ block.settings.avatar | image_url: width: 100 }}" alt="Avatar of {{ block.settings.author | escape }}" class="review-avatar" />
+          <img src="{{ block.settings.avatar | image_url: width: 100 }}" alt="Avatar" class="review-avatar" />
         {% endif %}
-        <div class="review-stars" aria-label="5 star rating">
-          {% for i in (1..5) %}⭐{% endfor %}
+        <div class="review-stars">
+          {% for i in (1..5) %}
+            ⭐
+          {% endfor %}
         </div>
         <div class="review-text">{{ block.settings.text }}</div>
         <div class="review-author">– {{ block.settings.author }}</div>
@@ -103,42 +94,25 @@
   </div>
 
   {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-    <div class="text-center">
+    <div class="text-center" style="text-align:center;">
       <a class="more-reviews-btn" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
     </div>
   {% endif %}
 </div>
 
 <script>
+  // 可选：自动横向滚动
   const reviewSlider = document.getElementById("reviewSlider");
+  let scrollAmount = 0;
   const scrollStep = 320;
-  let autoScrollInterval;
 
-  function autoScroll() {
-    if (reviewSlider.scrollLeft + reviewSlider.clientWidth >= reviewSlider.scrollWidth - 10) {
+  setInterval(() => {
+    if (reviewSlider.scrollLeft + reviewSlider.clientWidth >= reviewSlider.scrollWidth) {
       reviewSlider.scrollTo({ left: 0, behavior: "smooth" });
     } else {
       reviewSlider.scrollBy({ left: scrollStep, behavior: "smooth" });
     }
-  }
-
-  autoScrollInterval = setInterval(autoScroll, 5000);
-
-  // 用户主动滚动时暂停自动滚动，2秒后恢复
-  let isUserInteracting = false;
-  let interactionTimeout;
-
-  reviewSlider.addEventListener('scroll', () => {
-    if (!isUserInteracting) {
-      isUserInteracting = true;
-      clearInterval(autoScrollInterval);
-    }
-    clearTimeout(interactionTimeout);
-    interactionTimeout = setTimeout(() => {
-      isUserInteracting = false;
-      autoScrollInterval = setInterval(autoScroll, 5000);
-    }, 2000);
-  });
+  }, 5000);
 </script>
 
 {% schema %}
@@ -174,6 +148,11 @@
           "id": "author",
           "label": "Reviewer Name",
           "default": "Verified Buyer"
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Reviewer Avatar"
         }
       ]
     }
@@ -187,36 +166,15 @@
         {
           "type": "review",
           "settings": {
-            "text": "I purchased this cat bed for my furry friend, and it exceeded all my expectations! The material is incredibly soft and cushy, and my cat immediately took a liking to it — she hasn't wanted to leave since. It’s sturdy and well-constructed, so I’m not worried about it collapsing even with her jumping in and out. Cleaning is a breeze since the cover is removable and machine washable. Plus, the design is stylish enough to blend seamlessly with my home décor. I’m definitely planning to buy more products from this store in the future!",
-            "author": "Emily R."
+            "text": "This cat bed is amazing! My furry friend loves it!",
+            "author": "Emily"
           }
         },
         {
           "type": "review",
           "settings": {
-            "text": "The scratching board is top-notch quality — no rough edges or splinters that could hurt my cat’s paws. The thickness and firmness are perfect: sturdy enough for effective scratching, but gentle enough on her claws. After a few weeks, it already shows clear scratch marks, which means my cat loves it and my furniture is safe! The packaging was neat, and the shipping was fast. Customer service was friendly and helpful. Highly recommend this for any cat owner!",
-            "author": "Jason M."
-          }
-        },
-        {
-          "type": "review",
-          "settings": {
-            "text": "I bought this cat toy set, and it’s been a huge hit! The toys come in various fun shapes and bright colors, all made with safe, non-toxic materials that feel great to touch. My cat enjoys chasing and biting them and never seems bored. The feather teaser wand is a favorite — my cat chases it endlessly every day! These toys are durable too; after months of play, they’re still in great shape. The packaging was careful, and delivery was quick. Overall, a fantastic shopping experience!",
-            "author": "Verified Buyer"
-          }
-        },
-        {
-          "type": "review",
-          "settings": {
-            "text": "The cat bed recommended by the seller is really well designed — it’s breathable and keeps my cat warm during cold days. She feels safe and cozy whenever she’s inside. The neutral color fits perfectly in my living room without clashing with the décor. The seller was prompt with shipping and answered all my questions patiently. I’m very happy with my purchase and will keep supporting this store!",
-            "author": "Verified Buyer"
-          }
-        },
-        {
-          "type": "review",
-          "settings": {
-            "text": "Right after receiving the scratching board, I let my cat try it, and she instantly loved it. The board is solid and durable with eco-friendly materials and no unpleasant odors. The design is sleek and doesn’t disrupt my home’s aesthetic at all. Shipping was fast and the package arrived intact. Customer service was excellent as well. I highly recommend this product to anyone looking for a reliable scratching solution!",
-            "author": "Verified Buyer"
+            "text": "Well made and super cozy. Highly recommend.",
+            "author": "Jason"
           }
         }
       ]
