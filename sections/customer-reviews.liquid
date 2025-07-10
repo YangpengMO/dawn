@@ -3,41 +3,38 @@
   padding: 64px 20px;
   background-color: #fefefe;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  overflow: hidden;
 }
 
-.review-slider {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  gap: 24px;
-  padding-bottom: 8px;
-}
-
-.review-slider::-webkit-scrollbar {
-  display: none;
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .review-card {
-  flex: 0 0 auto;
-  width: 300px;
   background: #ffffff;
   border-radius: 16px;
   border: 1px solid #e0e0e0;
-  padding: 24px;
+  padding: 28px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  position: relative;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .review-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .review-avatar {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 12px;
+  box-shadow: 0 0 0 2px #ddd;
 }
 
 .review-stars {
@@ -49,22 +46,27 @@
 .review-text {
   font-size: 16px;
   color: #333;
-  line-height: 1.5;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  line-height: 1.6;
 }
 
 .review-author {
   font-size: 14px;
-  color: #666;
   font-weight: 500;
+  color: #666;
+}
+
+.review-carousel-container {
+  position: relative;
+  overflow: hidden;
 }
 
 .more-reviews-btn {
-  margin-top: 32px;
+  margin-top: 40px;
   display: inline-block;
   background: #222;
   color: #fff;
-  padding: 10px 24px;
+  padding: 12px 28px;
   border-radius: 8px;
   font-size: 15px;
   text-decoration: none;
@@ -75,8 +77,8 @@
 }
 {% endstylesheet %}
 
-<div class="customer-reviews-carousel">
-  <div class="review-slider" id="reviewSlider">
+<div class="customer-reviews-carousel review-carousel-container">
+  <div class="review-grid" id="review-carousel-grid">
     {% for block in section.blocks %}
       <div class="review-card">
         {% if block.settings.avatar != blank %}
@@ -101,17 +103,20 @@
 </div>
 
 <script>
-  // 可选：自动横向滚动
-  const reviewSlider = document.getElementById("reviewSlider");
-  let scrollAmount = 0;
-  const scrollStep = 320;
+  const grid = document.getElementById("review-carousel-grid");
+  let scrollPos = 0;
+  const scrollStep = 300;
 
   setInterval(() => {
-    if (reviewSlider.scrollLeft + reviewSlider.clientWidth >= reviewSlider.scrollWidth) {
-      reviewSlider.scrollTo({ left: 0, behavior: "smooth" });
+    if (grid.scrollWidth - grid.clientWidth > scrollPos) {
+      scrollPos += scrollStep;
     } else {
-      reviewSlider.scrollBy({ left: scrollStep, behavior: "smooth" });
+      scrollPos = 0;
     }
+    grid.scrollTo({
+      left: scrollPos,
+      behavior: "smooth"
+    });
   }, 5000);
 </script>
 
@@ -141,7 +146,7 @@
           "type": "textarea",
           "id": "text",
           "label": "Review Text",
-          "default": "My cat sleeps better than I do now!"
+          "default": "This cat bed is amazing! My furry friend has never been happier!"
         },
         {
           "type": "text",
@@ -166,14 +171,14 @@
         {
           "type": "review",
           "settings": {
-            "text": "This cat bed is amazing! My furry friend loves it!",
-            "author": "Emily"
+            "text": "My cat sleeps better than I do now!",
+            "author": "Lily"
           }
         },
         {
           "type": "review",
           "settings": {
-            "text": "Well made and super cozy. Highly recommend.",
+            "text": "Perfect size and super comfy. My cat loves it!",
             "author": "Jason"
           }
         }
