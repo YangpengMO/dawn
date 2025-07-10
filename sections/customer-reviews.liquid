@@ -4,6 +4,7 @@
   background-color: #fefefe;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   overflow: hidden;
+  position: relative;
 }
 
 .review-slider {
@@ -12,24 +13,26 @@
   scroll-behavior: smooth;
   gap: 24px;
   padding-bottom: 8px;
+  scrollbar-width: none; /* Firefox */
 }
-
 .review-slider::-webkit-scrollbar {
-  display: none;
+  display: none; /* Chrome, Safari */
 }
 
 .review-card {
   flex: 0 0 auto;
   width: 300px;
-  background: #ffffff;
+  background: #fff;
   border-radius: 16px;
   border: 1px solid #e0e0e0;
   padding: 24px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
 }
 .review-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
 }
 
 .review-avatar {
@@ -38,147 +41,155 @@
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 12px;
+  border: 2px solid #fbbc04;
 }
 
 .review-stars {
   color: #fbbc04;
   font-size: 18px;
   margin: 8px 0;
+  user-select: none;
 }
 
 .review-text {
   font-size: 16px;
   color: #333;
-  line-height: 1.5;
-  margin-bottom: 12px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  min-height: 72px; /* 保证高度一致 */
 }
 
 .review-author {
   font-size: 14px;
   color: #666;
-  font-weight: 500;
+  font-weight: 600;
+  text-align: right;
 }
 
 .more-reviews-btn {
-  margin-top: 32px;
+  margin: 32px auto 0;
   display: inline-block;
   background: #222;
   color: #fff;
-  padding: 10px 24px;
+  padding: 12px 28px;
   border-radius: 8px;
   font-size: 15px;
   text-decoration: none;
-  transition: background 0.3s;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  user-select: none;
 }
-.more-reviews-btn:hover {
+.more-reviews-btn:hover,
+.more-reviews-btn:focus {
   background: #000;
+  outline: none;
+}
+
+/* 添加左右箭头按钮 */
+.review-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(34, 34, 34, 0.7);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+.review-carousel-btn:hover,
+.review-carousel-btn:focus {
+  background: #000;
+  outline: none;
+}
+.review-carousel-btn.left {
+  left: 8px;
+}
+.review-carousel-btn.right {
+  right: 8px;
 }
 {% endstylesheet %}
 
 <div class="customer-reviews-carousel">
-  <div class="review-slider" id="reviewSlider">
+  <button class="review-carousel-btn left" aria-label="Scroll reviews left">&#9664;</button>
+  <div class="review-slider" id="reviewSlider" tabindex="0" role="list">
     {% for block in section.blocks %}
-      <div class="review-card">
+      <div class="review-card" role="listitem">
         {% if block.settings.avatar != blank %}
-          <img src="{{ block.settings.avatar | image_url: width: 100 }}" alt="Avatar" class="review-avatar" />
+          <img src="{{ block.settings.avatar | image_url: width: 100 }}" alt="Avatar of {{ block.settings.author | escape }}" class="review-avatar" />
         {% endif %}
-        <div class="review-stars">
-          {% for i in (1..5) %}
-            ⭐
-          {% endfor %}
+        <div class="review-stars" aria-label="5 star rating">
+          {% for i in (1..5) %}⭐{% endfor %}
         </div>
         <div class="review-text">{{ block.settings.text }}</div>
         <div class="review-author">– {{ block.settings.author }}</div>
       </div>
     {% endfor %}
   </div>
+  <button class="review-carousel-btn right" aria-label="Scroll reviews right">&#9654;</button>
 
   {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-    <div class="text-center" style="text-align:center;">
+    <div class="text-center">
       <a class="more-reviews-btn" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
     </div>
   {% endif %}
 </div>
 
 <script>
-  // 可选：自动横向滚动
   const reviewSlider = document.getElementById("reviewSlider");
-  let scrollAmount = 0;
+  const btnLeft = document.querySelector(".review-carousel-btn.left");
+  const btnRight = document.querySelector(".review-carousel-btn.right");
   const scrollStep = 320;
+  let autoScrollInterval;
 
-  setInterval(() => {
-    if (reviewSlider.scrollLeft + reviewSlider.clientWidth >= reviewSlider.scrollWidth) {
+  function scrollLeft() {
+    reviewSlider.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+  }
+
+  function scrollRight() {
+    reviewSlider.scrollBy({ left: scrollStep, behavior: 'smooth' });
+  }
+
+  btnLeft.addEventListener("click", () => {
+    scrollLeft();
+    resetAutoScroll();
+  });
+
+  btnRight.addEventListener("click", () => {
+    scrollRight();
+    resetAutoScroll();
+  });
+
+  function autoScroll() {
+    if (reviewSlider.scrollLeft + reviewSlider.clientWidth >= reviewSlider.scrollWidth - 10) {
       reviewSlider.scrollTo({ left: 0, behavior: "smooth" });
     } else {
-      reviewSlider.scrollBy({ left: scrollStep, behavior: "smooth" });
+      scrollRight();
     }
-  }, 5000);
-</script>
+  }
 
-{% schema %}
-{
-  "name": "Customer Reviews Carousel",
-  "settings": [
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "More Reviews Button Text",
-      "default": "Read More Reviews"
-    },
-    {
-      "type": "text",
-      "id": "button_link",
-      "label": "Button Link URL",
-      "default": "/collections/all"
+  function resetAutoScroll() {
+    clearInterval(autoScrollInterval);
+    autoScrollInterval = setInterval(autoScroll, 5000);
+  }
+
+  autoScrollInterval = setInterval(autoScroll, 5000);
+
+  // 可选：键盘左右键控制滚动，增强可访问性
+  reviewSlider.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      scrollLeft();
+      resetAutoScroll();
+    } else if (e.key === "ArrowRight") {
+      scrollRight();
+      resetAutoScroll();
     }
-  ],
-  "blocks": [
-    {
-      "type": "review",
-      "name": "Review",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Review Text",
-          "default": "My cat sleeps better than I do now!"
-        },
-        {
-          "type": "text",
-          "id": "author",
-          "label": "Reviewer Name",
-          "default": "Verified Buyer"
-        },
-        {
-          "type": "image_picker",
-          "id": "avatar",
-          "label": "Reviewer Avatar"
-        }
-      ]
-    }
-  ],
-  "max_blocks": 10,
-  "presets": [
-    {
-      "name": "Customer Reviews Carousel",
-      "category": "Testimonials",
-      "blocks": [
-        {
-          "type": "review",
-          "settings": {
-            "text": "This cat bed is amazing! My furry friend loves it!",
-            "author": "Emily"
-          }
-        },
-        {
-          "type": "review",
-          "settings": {
-            "text": "Well made and super cozy. Highly recommend.",
-            "author": "Jason"
-          }
-        }
-      ]
-    }
-  ]
-}
-{% endschema %}
+  });
+</script>
