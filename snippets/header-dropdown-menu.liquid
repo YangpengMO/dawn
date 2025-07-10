@@ -3,7 +3,6 @@
 {% endcomment %}
 
 <style>
-  /* 这里是悬停 CSS */
   .menu-item {
     position: relative;
   }
@@ -36,6 +35,14 @@
 
   .submenu .menu-item {
     position: relative;
+  }
+
+  /* ✅ 去掉圆点 */
+  .list-menu,
+  .list-menu li,
+  .submenu,
+  .submenu li {
+    list-style: none;
   }
 </style>
 
