@@ -1,127 +1,142 @@
 {% stylesheet %}
 .customer-reviews-carousel {
-  padding: 60px 20px;
-  background-color: #fdfdfd;
-}
-
-.review-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  justify-content: center;
-  align-items: stretch;
-}
-
-.review-card {
-  background: #fff;
-  border-radius: 16px;
-  border: 1px solid #eee;
-  padding: 24px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   position: relative;
-  text-align: left;
-  transition: transform 0.3s ease;
-}
-.review-card:hover {
-  transform: translateY(-4px);
+  padding: 40px 0;
+  text-align: center;
+  background: linear-gradient(to bottom, #fff, #f7f7f7);
 }
 
-.review-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 12px;
+.review-slide {
+  display: none;
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px 24px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-slide.active {
+  display: block;
+  transform: translateY(0);
 }
 
 .review-stars {
   color: #f5a623;
-  font-size: 16px;
-  margin-bottom: 10px;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.star-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 2px;
+  display: inline-block;
+  vertical-align: middle;
+  color: #f5a623;
 }
 
 .review-text {
-  font-size: 16px;
-  color: #444;
-  margin-bottom: 12px;
-  line-height: 1.5;
+  font-size: 18px;
+  color: #222;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-weight: 500;
 }
 
 .review-author {
-  font-size: 14px;
-  color: #777;
-}
-
-.review-carousel-container {
-  overflow: hidden;
-  position: relative;
+  font-size: 15px;
+  color: #666;
+  font-style: italic;
 }
 
 .review-dots {
-  margin-top: 16px;
-  text-align: center;
+  margin-top: 20px;
 }
+
 .review-dots span {
   cursor: pointer;
-  font-size: 20px;
+  font-size: 22px;
   color: #ccc;
-  padding: 0 4px;
+  padding: 0 6px;
+  transition: color 0.3s ease;
 }
+
 .review-dots span.active {
-  color: #333;
+  color: #f5a623;
 }
 
 .more-reviews-btn {
-  margin-top: 32px;
+  margin-top: 28px;
   display: inline-block;
   background: #333;
   color: #fff;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 6px;
   text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.more-reviews-btn:hover {
+  background: #111;
+}
+
+@media (max-width: 768px) {
+  .review-slide {
+    padding: 20px;
+  }
+
+  .review-text {
+    font-size: 16px;
+  }
+
+  .review-author {
+    font-size: 14px;
+  }
 }
 {% endstylesheet %}
 
-<div class="customer-reviews-carousel review-carousel-container">
-  <div class="review-grid" id="review-carousel-grid">
+
+<div class="customer-reviews-carousel" id="customer-reviews-carousel">
+  {% for block in section.blocks %}
+    <div class="review-slide{% if forloop.first %} active{% endif %}">
+<div class="review-stars">
+  {% for i in (1..5) %}
+    <svg class="star-icon" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.562-.955L10 0l2.951 5.955 6.562.955-4.757 4.635 1.122 6.545z"/>
+    </svg>
+  {% endfor %}
+</div>
+      <div class="review-text">{{ block.settings.text }}</div>
+      <div class="review-author">– {{ block.settings.author }}</div>
+    </div>
+  {% endfor %}
+
+  <div class="review-dots">
     {% for block in section.blocks %}
-      <div class="review-card">
-        {% if block.settings.avatar != blank %}
-          <img src="{{ block.settings.avatar | image_url: width: 100 }}" alt="Avatar" class="review-avatar" />
-        {% endif %}
-        <div class="review-stars">
-          {% for i in (1..5) %}
-            ⭐
-          {% endfor %}
-        </div>
-        <div class="review-text">{{ block.settings.text }}</div>
-        <div class="review-author">– {{ block.settings.author }}</div>
-      </div>
+      <span class="{% if forloop.first %}active{% endif %}" onclick="showReviewSlide({{ forloop.index0 }})">●</span>
     {% endfor %}
   </div>
 
   {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-    <div class="text-center" style="margin-top: 24px;">
-      <a class="more-reviews-btn" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
-    </div>
+    <a class="more-reviews-btn" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
   {% endif %}
 </div>
 
 <script>
-  const carousel = document.getElementById("review-carousel-grid");
-  let scrollAmount = 0;
-  const scrollStep = 320;
-  setInterval(() => {
-    if (carousel.scrollWidth - carousel.clientWidth > scrollAmount) {
-      scrollAmount += scrollStep;
-    } else {
-      scrollAmount = 0;
-    }
-    carousel.scrollTo({
-      left: scrollAmount,
-      behavior: "smooth"
-    });
-  }, 4000);
+  const slides = document.querySelectorAll('#customer-reviews-carousel .review-slide');
+  const dots = document.querySelectorAll('#customer-reviews-carousel .review-dots span');
+  let current = 0;
+
+  function showReviewSlide(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+    current = index;
+  }
 </script>
 
 {% schema %}
@@ -157,11 +172,6 @@
           "id": "author",
           "label": "Reviewer Name",
           "default": "Verified Buyer"
-        },
-        {
-          "type": "image_picker",
-          "id": "avatar",
-          "label": "Reviewer Avatar"
         }
       ]
     }
@@ -175,9 +185,36 @@
         {
           "type": "review",
           "settings": {
-            "text": "My cat sleeps better than I do now!",
-            "author": "Lily",
-            "avatar": ""
+            "text": "I purchased this cat bed for my furry friend, and it exceeded all my expectations! The material is incredibly soft and cushy, and my cat immediately took a liking to it — she hasn't wanted to leave since. It’s sturdy and well-constructed, so I’m not worried about it collapsing even with her jumping in and out. Cleaning is a breeze since the cover is removable and machine washable. Plus, the design is stylish enough to blend seamlessly with my home décor. I’m definitely planning to buy more products from this store in the future!",
+            "author": "Emily R."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "The scratching board is top-notch quality — no rough edges or splinters that could hurt my cat’s paws. The thickness and firmness are perfect: sturdy enough for effective scratching, but gentle enough on her claws. After a few weeks, it already shows clear scratch marks, which means my cat loves it and my furniture is safe! The packaging was neat, and the shipping was fast. Customer service was friendly and helpful. Highly recommend this for any cat owner!",
+            "author": "Jason M."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "I bought this cat toy set, and it’s been a huge hit! The toys come in various fun shapes and bright colors, all made with safe, non-toxic materials that feel great to touch. My cat enjoys chasing and biting them and never seems bored. The feather teaser wand is a favorite — my cat chases it endlessly every day! These toys are durable too; after months of play, they’re still in great shape. The packaging was careful, and delivery was quick. Overall, a fantastic shopping experience!",
+            "author": "Verified Buyer"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "The cat bed recommended by the seller is really well designed — it’s breathable and keeps my cat warm during cold days. She feels safe and cozy whenever she’s inside. The neutral color fits perfectly in my living room without clashing with the décor. The seller was prompt with shipping and answered all my questions patiently. I’m very happy with my purchase and will keep supporting this store!",
+            "author": "Verified Buyer"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "Right after receiving the scratching board, I let my cat try it, and she instantly loved it. The board is solid and durable with eco-friendly materials and no unpleasant odors. The design is sleek and doesn’t disrupt my home’s aesthetic at all. Shipping was fast and the package arrived intact. Customer service was excellent as well. I highly recommend this product to anyone looking for a reliable scratching solution!",
+            "author": "Verified Buyer"
           }
         }
       ]
