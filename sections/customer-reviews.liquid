@@ -13,26 +13,29 @@
   scroll-behavior: smooth;
   gap: 24px;
   padding-bottom: 8px;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 .review-slider::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
 }
 
 .review-card {
   flex: 0 0 auto;
   width: 300px;
+  min-height: 360px;
   background: #fff;
   border-radius: 16px;
   border: 1px solid #e0e0e0;
   padding: 24px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .review-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 .review-avatar {
@@ -56,7 +59,7 @@
   color: #333;
   line-height: 1.6;
   margin-bottom: 16px;
-  min-height: 72px;
+  flex-grow: 1;
 }
 
 .review-author {
@@ -64,6 +67,7 @@
   color: #666;
   font-weight: 600;
   text-align: right;
+  margin-top: 12px;
 }
 
 .more-reviews-btn {
@@ -77,12 +81,17 @@
   text-decoration: none;
   transition: background-color 0.3s ease;
   cursor: pointer;
-  user-select: none;
 }
 .more-reviews-btn:hover,
 .more-reviews-btn:focus {
   background: #000;
   outline: none;
+}
+
+@media (max-width: 768px) {
+  .review-card {
+    width: 260px;
+  }
 }
 {% endstylesheet %}
 
@@ -124,7 +133,6 @@
 
   autoScrollInterval = setInterval(autoScroll, 5000);
 
-  // 用户主动滚动时暂停自动滚动，2秒后恢复
   let isUserInteracting = false;
   let interactionTimeout;
 
