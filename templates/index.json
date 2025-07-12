@@ -148,6 +148,7 @@
         "category_Jtwcnw": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/eric-han-WJ6fmN1D-h0-unsplash.jpg",
             "title": "Scratchers",
             "link": "/collections/cat-scratchers"
           }
@@ -271,7 +272,7 @@
       ],
       "name": "Customer Reviews Carousel",
       "settings": {
-        "button_label": "Read More Reviews",
+        "button_label": "",
         "button_link": "Customer Reviews"
       }
     },
