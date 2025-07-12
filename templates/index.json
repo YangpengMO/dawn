@@ -117,8 +117,8 @@
           "type": "category",
           "settings": {
             "image": "shopify://shop_images/cat_playing_compressed.jpg",
-            "title": "Cat Beds",
-            "link": "/collections/cat-beds"
+            "title": "Cat Water Fountains",
+            "link": "shopify://collections/frontpage"
           }
         },
         "toys": {
