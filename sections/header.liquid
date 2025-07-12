@@ -1,7 +1,6 @@
-<!-- 优化后的样式引入方式：延迟加载、排序清晰 -->
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
 
 {%- if settings.predictive_search_enabled -%}
@@ -12,7 +11,7 @@
   <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
-<!-- 补充：添加 font-style 统一优化 -->
+
 <style>
   header-drawer {
     justify-self: start;
@@ -59,17 +58,10 @@
   }
 
   .list-menu__item--link {
-    text-decoration: underline overline;
+    text-decoration: none;
     padding-bottom: 1rem;
     padding-top: 1rem;
     line-height: calc(1 + 0.8 / var(--font-body-scale));
-    transition: color 0.3s ease, border-bottom 0.3s ease;
-  }
-
-  .list-menu__item--link:hover {
-    text-decoration: underline overline;
-    color: var(--color-foreground, #000);
-    border-bottom: 2px solid var(--color-foreground, #000);
   }
 
   @media screen and (min-width: 750px) {
@@ -86,7 +78,7 @@
   }
 
   .section-header {
-    position: sticky; /* Safari z-index 修复 */
+    position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
     margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
   }
 
@@ -103,7 +95,6 @@
     }
   }
 {%- endstyle -%}
-
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
