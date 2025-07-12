@@ -140,7 +140,6 @@
         "category_3dFCWE": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/eric-han-WJ6fmN1D-h0-unsplash.jpg",
             "title": "Scratchers",
             "link": "/collections/cat-scratchers"
           }
@@ -148,7 +147,6 @@
         "category_Jtwcnw": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/eric-han-WJ6fmN1D-h0-unsplash.jpg",
             "title": "Scratchers",
             "link": "/collections/cat-scratchers"
           }
