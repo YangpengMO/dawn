@@ -110,39 +110,58 @@
         "padding_bottom": 36
       }
     },
-    "category_overlay": {
+    "category_overlay_BNAMN9": {
       "type": "category-overlay",
       "blocks": {
-        "cat_beds": {
+        "category_7QiNYP": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/cat_playing_compressed.jpg",
-            "title": "Cat Water Fountains",
-            "link": "shopify://collections/frontpage"
+            "image": "shopify://shop_images/cat_playing_2_16267c33-0956-405c-860c-2b498530a58b.jpg",
+            "title": "Cat Beds",
+            "link": "/collections/cat-beds"
           }
         },
-        "toys": {
+        "category_KVyDMn": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/cat_playing_compressed.jpg",
-            "title": "litter box",
-            "link": "shopify://collections/litter-box"
+            "image": "shopify://shop_images/eric-han-WJ6fmN1D-h0-unsplash.jpg",
+            "title": "Toys",
+            "link": "/collections/cat-toys"
           }
         },
-        "scratchers": {
+        "category_JN3xgm": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/cat_playing_compressed.jpg",
-            "title": "Cat Scratchers",
-            "link": "shopify://collections/cat-scratchers"
+            "image": "shopify://shop_images/cat_playing_2_16267c33-0956-405c-860c-2b498530a58b.jpg",
+            "title": "Scratchers",
+            "link": "/collections/cat-scratchers"
+          }
+        },
+        "category_3dFCWE": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/eric-han-WJ6fmN1D-h0-unsplash.jpg",
+            "title": "Scratchers",
+            "link": "/collections/cat-scratchers"
+          }
+        },
+        "category_Jtwcnw": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/eric-han-WJ6fmN1D-h0-unsplash.jpg",
+            "title": "Scratchers",
+            "link": "/collections/cat-scratchers"
           }
         }
       },
       "block_order": [
-        "cat_beds",
-        "toys",
-        "scratchers"
+        "category_7QiNYP",
+        "category_KVyDMn",
+        "category_JN3xgm",
+        "category_3dFCWE",
+        "category_Jtwcnw"
       ],
+      "name": "Category Overlay",
       "settings": {
         "title": "Shop by Category"
       }
@@ -268,7 +287,7 @@
   "order": [
     "image_banner",
     "reasons_multicolumn",
-    "category_overlay",
+    "category_overlay_BNAMN9",
     "promo_banner",
     "featured_collection",
     "customer_reviews_dRbn9m",
