@@ -1,29 +1,32 @@
 {% stylesheet %}
 .category-overlay {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
   padding: 0 1rem;
+  align-items: stretch;
 }
 
-.category-overlay__title {
-  font-size: 28px;
-  text-align: center;
-  margin-bottom: 24px;
-  font-weight: 600;
-  color: #333;
-}
-
-.category-overlay__item {
+.category-overlay__item--large {
+  grid-column: span 3; /* 占 3/6 = 50% */
   position: relative;
   overflow: hidden;
   border-radius: 8px;
   cursor: pointer;
-  /* 过渡动画 */
   transition: transform 0.3s ease;
 }
 
-.category-overlay__item:hover {
+.category-overlay__item--small {
+  grid-column: span 1.5; /* 1.5 / 6 = 25% */
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.category-overlay__item--large:hover,
+.category-overlay__item--small:hover {
   transform: scale(1.03);
   z-index: 1;
 }
@@ -33,9 +36,11 @@
   height: auto;
   display: block;
   transition: transform 0.3s ease;
+  border-radius: 8px;
 }
 
-.category-overlay__item:hover .category-overlay__image {
+.category-overlay__item--large:hover .category-overlay__image,
+.category-overlay__item--small:hover .category-overlay__image {
   transform: scale(1.1);
 }
 
@@ -48,30 +53,31 @@
   background: rgba(0, 0, 0, 0.45);
   color: #fff;
   text-decoration: none;
-  font-size: 1.25rem; /* 20px 转 rem */
+  font-size: 1.25rem;
   font-weight: 700;
   opacity: 0;
   transition: opacity 0.3s ease;
   text-shadow: 0 0 5px rgba(0,0,0,0.7);
   padding: 0 0.5rem;
   text-align: center;
+  border-radius: 8px;
 }
 
-.category-overlay__item:hover .category-overlay__link {
+.category-overlay__item--large:hover .category-overlay__link,
+.category-overlay__item--small:hover .category-overlay__link {
   opacity: 1;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   .category-overlay {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
+    grid-template-columns: 1fr;
   }
-  .category-overlay__title {
-    font-size: 22px;
-    margin-bottom: 16px;
+  .category-overlay__item--large,
+  .category-overlay__item--small {
+    grid-column: span 1 !important;
   }
-  .category-overlay__link {
-    font-size: 1rem;
+  .category-overlay__item--small {
+    margin-top: 12px;
   }
 }
 {% endstylesheet %}
@@ -81,8 +87,10 @@
 {% endif %}
 
 <div class="category-overlay">
-  {% for block in section.blocks %}
-    <div class="category-overlay__item">
+  {% assign blocks = section.blocks | slice: 0,5 %}
+  {% for block in blocks %}
+    <div class="category-overlay__item 
+      {% if forloop.first %}category-overlay__item--large{% else %}category-overlay__item--small{% endif %}">
       {% if block.settings.image %}
         <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}" class="category-overlay__image" loading="lazy" decoding="async">
       {% endif %}
