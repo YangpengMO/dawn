@@ -1,83 +1,67 @@
 {% stylesheet %}
-.category-overlay {
+.category-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 16px;
   padding: 0 1rem;
-  align-items: stretch;
 }
 
-.category-overlay__item--large {
-  grid-column: span 3; /* 占 3/6 = 50% */
+.category-grid__item {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   transition: transform 0.3s ease;
+  background-color: #f7f7f7;
 }
 
-.category-overlay__item--small {
-  grid-column: span 1.5; /* 1.5 / 6 = 25% */
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.category-overlay__item--large:hover,
-.category-overlay__item--small:hover {
+.category-grid__item:hover {
   transform: scale(1.03);
   z-index: 1;
 }
 
-.category-overlay__image {
+.category-grid__image {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.3s ease;
-  border-radius: 8px;
+  object-fit: cover;
 }
 
-.category-overlay__item--large:hover .category-overlay__image,
-.category-overlay__item--small:hover .category-overlay__image {
-  transform: scale(1.1);
-}
-
-.category-overlay__link {
+.category-grid__link {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.45);
-  color: #fff;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 1rem;
   text-decoration: none;
   font-size: 1.25rem;
-  font-weight: 700;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  text-shadow: 0 0 5px rgba(0,0,0,0.7);
-  padding: 0 0.5rem;
-  text-align: center;
-  border-radius: 8px;
+  font-weight: 600;
+  color: #333;
+  background: rgba(255,255,255,0.6);
+  text-shadow: none;
+  transition: background 0.3s ease;
 }
 
-.category-overlay__item--large:hover .category-overlay__link,
-.category-overlay__item--small:hover .category-overlay__link {
-  opacity: 1;
+.category-grid__link:hover {
+  background: rgba(255,255,255,0.85);
+}
+
+.category-grid__item--large {
+  grid-row: span 2;
+  grid-column: span 1;
 }
 
 @media screen and (max-width: 900px) {
-  .category-overlay {
+  .category-grid {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
-  .category-overlay__item--large,
-  .category-overlay__item--small {
-    grid-column: span 1 !important;
-  }
-  .category-overlay__item--small {
-    margin-top: 12px;
+  .category-grid__item,
+  .category-grid__item--large {
+    grid-column: span 1;
+    grid-row: span 1;
   }
 }
 {% endstylesheet %}
@@ -86,17 +70,17 @@
   <h2 class="category-overlay__title">{{ section.settings.title }}</h2>
 {% endif %}
 
-<div class="category-overlay">
+<div class="category-grid">
   {% assign blocks = section.blocks | slice: 0,5 %}
   {% for block in blocks %}
-    <div class="category-overlay__item 
-      {% if forloop.first %}category-overlay__item--large{% else %}category-overlay__item--small{% endif %}">
+    <div class="category-grid__item {% if forloop.first %}category-grid__item--large{% endif %}">
       {% if block.settings.image %}
-        <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}" class="category-overlay__image" loading="lazy" decoding="async">
+        <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}" class="category-grid__image" loading="lazy">
       {% endif %}
       {% if block.settings.link %}
-        <a href="{{ block.settings.link }}" class="category-overlay__link">
+        <a href="{{ block.settings.link }}" class="category-grid__link">
           {{ block.settings.title }}
+          <span>&rarr;</span>
         </a>
       {% endif %}
     </div>
@@ -105,8 +89,8 @@
 
 {% schema %}
 {
-  "name": "Category Overlay",
-  "max_blocks": 5,
+  "name": "Category Grid",
+  "max_blocks": 6,
   "settings": [
     {
       "type": "text",
@@ -140,50 +124,50 @@
     }
   ],
   "presets": [
-  {
-    "name": "Category Overlay",
-    "category": "Custom",
-    "settings": {
-      "title": "Shop by Category"
-    },
-    "blocks": [
-      {
-        "type": "category",
-        "settings": {
-          "title": "Cat Beds",
-          "link": "/collections/cat-beds"
-        }
+    {
+      "name": "Category Grid",
+      "category": "Custom",
+      "settings": {
+        "title": "Shop by Category"
       },
-      {
-        "type": "category",
-        "settings": {
-          "title": "Toys",
-          "link": "/collections/cat-toys"
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "title": "New & Innovation",
+            "link": "/collections/innovation"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Travel & Care",
+            "link": "/collections/travel-care"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Eat & Drink",
+            "link": "/collections/eat-drink"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Play & Scratch",
+            "link": "/collections/play-scratch"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Furniture",
+            "link": "/collections/furniture"
+          }
         }
-      },
-      {
-        "type": "category",
-        "settings": {
-          "title": "Scratchers",
-          "link": "/collections/cat-scratchers"
-        }
-      },
-      {
-        "type": "category",
-        "settings": {
-          "title": "Carriers",
-          "link": "/collections/cat-carriers"
-        }
-      },
-      {
-        "type": "category",
-        "settings": {
-          "title": "Litter Boxes",
-          "link": "/collections/litter-boxes"
-        }
-      }
-    ]
-  }
-]
+      ]
+    }
+  ]
 }
 {% endschema %}
