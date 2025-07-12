@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  padding: 0 1rem;
 }
 
 .category-overlay__title {
@@ -17,12 +18,25 @@
   position: relative;
   overflow: hidden;
   border-radius: 8px;
+  cursor: pointer;
+  /* 过渡动画 */
+  transition: transform 0.3s ease;
+}
+
+.category-overlay__item:hover {
+  transform: scale(1.03);
+  z-index: 1;
 }
 
 .category-overlay__image {
   width: 100%;
   height: auto;
   display: block;
+  transition: transform 0.3s ease;
+}
+
+.category-overlay__item:hover .category-overlay__image {
+  transform: scale(1.1);
 }
 
 .category-overlay__link {
@@ -31,17 +45,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.4);
-  color: white;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
   text-decoration: none;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 1.25rem; /* 20px 转 rem */
+  font-weight: 700;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;
+  text-shadow: 0 0 5px rgba(0,0,0,0.7);
+  padding: 0 0.5rem;
+  text-align: center;
 }
 
 .category-overlay__item:hover .category-overlay__link {
   opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .category-overlay {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .category-overlay__title {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  .category-overlay__link {
+    font-size: 1rem;
+  }
 }
 {% endstylesheet %}
 
@@ -53,7 +84,7 @@
   {% for block in section.blocks %}
     <div class="category-overlay__item">
       {% if block.settings.image %}
-        <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}" class="category-overlay__image">
+        <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}" class="category-overlay__image" loading="lazy" decoding="async">
       {% endif %}
       {% if block.settings.link %}
         <a href="{{ block.settings.link }}" class="category-overlay__link">
