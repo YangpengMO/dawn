@@ -125,8 +125,8 @@
           "type": "category",
           "settings": {
             "image": "shopify://shop_images/cat_playing_compressed.jpg",
-            "title": "Toys",
-            "link": "/collections/cat-toys"
+            "title": "Cat Scratchers",
+            "link": "shopify://collections/cat-scratchers"
           }
         },
         "scratchers": {
