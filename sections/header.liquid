@@ -58,10 +58,17 @@
   }
 
   .list-menu__item--link {
-    text-decoration: none;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
+    text-decoration: none !important; /* ✅ 去掉下划线 */
+    font-weight: 600; /* ✅ 可选：加粗字体 */
+    padding: 0.8rem 1.2rem;
     line-height: calc(1 + 0.8 / var(--font-body-scale));
+    color: #222; /* 可选：统一文字颜色 */
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+
+  .list-menu__item--link:hover {
+    background-color: #f5f5f5; /* ✅ 可选：hover 灰色背景 */
   }
 
   @media screen and (min-width: 750px) {
@@ -71,6 +78,7 @@
     }
   }
 </style>
+
 
 {%- style -%}
   .header {
