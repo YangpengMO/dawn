@@ -12,8 +12,9 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 16px;
-  padding: 0 1rem;
-  
+  max-width: 1200px; /* 控制整体宽度，避免撑满屏 */
+  margin: 0 auto;
+  padding: 40px 1rem; /* 添加上下留白，避免模块紧贴 */
 }
 
 .category-grid__item {
