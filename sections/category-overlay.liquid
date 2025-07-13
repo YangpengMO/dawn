@@ -12,9 +12,9 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 16px;
-  max-width: 1200px; /* 控制整体宽度，避免撑满屏 */
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 1rem; /* 添加上下留白，避免模块紧贴 */
+  padding: 40px 1rem;
 }
 
 .category-grid__item {
@@ -24,7 +24,7 @@
   cursor: pointer;
   transition: transform 0.3s ease;
   background-color: #f9f9f9;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* 添加柔和阴影 */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .category-grid__item:hover {
@@ -57,13 +57,13 @@
   font-weight: 600;
   color: #fff;
   background: rgba(0, 0, 0, 0.25);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* 增强可读性 */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   transition: background 0.3s ease;
   border-radius: 12px;
 }
 
 .category-grid__link:hover {
-  background: rgba(0, 0, 0, 0.4); /* hover 时略加深 */
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .category-grid__item--large {
@@ -71,21 +71,38 @@
   grid-row: span 2;
 }
 
+/* ✅ 移动端优化开始 */
 @media screen and (max-width: 900px) {
+  .category-overlay__title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+
   .category-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    gap: 12px;
+    padding: 32px 1rem;
   }
+
   .category-grid__item,
   .category-grid__item--large {
     grid-column: span 1;
     grid-row: span 1;
   }
-  .category-grid__item:not(:first-child) {
-    margin-top: 12px;
+
+  .category-grid__image {
+    aspect-ratio: 3 / 2; /* 更适合竖屏手机视口 */
+  }
+
+  .category-grid__link {
+    font-size: 1rem;
+    padding: 0.75rem;
   }
 }
+/* ✅ 移动端优化结束 */
 {% endstylesheet %}
+
 
 {% if section.settings.title != blank %}
   <h2 class="category-overlay__title">{{ section.settings.title }}</h2>
