@@ -72,7 +72,12 @@
 }
 
 /* ✅ 移动端优化开始 */
-@media screen and (max-width: 900px) {
+  @media screen and (max-width: 900px) {
+  .category-overlay__title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+
   .category-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
@@ -83,18 +88,12 @@
     grid-column: span 1;
     grid-row: span 1;
   }
-
   .category-grid__item--large {
     grid-column: span 2;
     grid-row: span 1;
   }
 
-  /* ✅ 首图高一点，更突出 */
-  .category-grid__item--large .category-grid__image {
-    aspect-ratio: 4 / 2.2;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    border-radius: 14px;
-  }
+
 
   .category-grid__image {
     aspect-ratio: 4 / 3;
@@ -105,6 +104,7 @@
     padding: 0.75rem;
   }
 }
+
 /* ✅ 移动端优化结束 */
 {% endstylesheet %}
 
