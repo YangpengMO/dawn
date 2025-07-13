@@ -79,20 +79,19 @@
   }
 
   .category-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr); /* ✅ 两列展示 */
     gap: 12px;
     padding: 32px 1rem;
   }
 
   .category-grid__item,
   .category-grid__item--large {
-    grid-column: span 1;
+    grid-column: span 1; /* ✅ 取消跨 2 行 */
     grid-row: span 1;
   }
 
   .category-grid__image {
-    aspect-ratio: 3 / 2; /* 更适合竖屏手机视口 */
+    aspect-ratio: 4 / 3;
   }
 
   .category-grid__link {
