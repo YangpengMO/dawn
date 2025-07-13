@@ -27,6 +27,10 @@
   #Banner-{{ section.id }}::after {
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   }
+  /* ✅ 添加模块下边距，统一首页节奏感 */
+  #Banner-{{ section.id }} {
+    margin-bottom: 60px;
+  }
 {%- endstyle -%}
 
 {%- liquid
