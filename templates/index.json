@@ -110,6 +110,62 @@
         "padding_bottom": 36
       }
     },
+    "category_overlay_WDHNzd": {
+      "type": "category-overlay",
+      "blocks": {
+        "category_EHdemK": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/eric-han-WJ6fmN1D-h0-unsplash.jpg",
+            "title": "New & Innovation",
+            "link": "/collections/innovation"
+          }
+        },
+        "category_H6dFY9": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/cat_playing_2_16267c33-0956-405c-860c-2b498530a58b.jpg",
+            "title": "Travel & Care",
+            "link": "/collections/travel-care"
+          }
+        },
+        "category_fRhqYN": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/cat_playing_2.jpg",
+            "title": "Eat & Drink",
+            "link": "/collections/eat-drink"
+          }
+        },
+        "category_DK8tNa": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/cat_playing_compressed.jpg",
+            "title": "Play & Scratch",
+            "link": "/collections/play-scratch"
+          }
+        },
+        "category_rYtrwb": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/cat_playing_2.jpg",
+            "title": "Furniture",
+            "link": "/collections/furniture"
+          }
+        }
+      },
+      "block_order": [
+        "category_EHdemK",
+        "category_H6dFY9",
+        "category_fRhqYN",
+        "category_DK8tNa",
+        "category_rYtrwb"
+      ],
+      "name": "Category Grid",
+      "settings": {
+        "title": "Shop by Category"
+      }
+    },
     "promo_banner": {
       "type": "rich-text",
       "blocks": {
@@ -231,6 +287,7 @@
   "order": [
     "image_banner",
     "reasons_multicolumn",
+    "category_overlay_WDHNzd",
     "promo_banner",
     "featured_collection",
     "customer_reviews_dRbn9m",
