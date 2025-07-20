@@ -59,10 +59,7 @@
         "collapsible_tab_h7Xz3n": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "content": "{{ block.settings.page.content }}",
-            "page": ""
+            "heading": "asd"
           }
         },
         "collapsible-row-0": {
