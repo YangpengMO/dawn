@@ -61,7 +61,7 @@
           "settings": {
             "heading": "Collapsible row",
             "icon": "apple",
-            "content": "{{ block.settings.page.content }}",
+            "content": "<p>asdasd</p>",
             "page": "customer-reviews"
           }
         },
