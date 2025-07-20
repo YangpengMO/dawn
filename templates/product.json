@@ -61,7 +61,7 @@
           "settings": {
             "heading": "Collapsible row",
             "icon": "check_mark",
-            "content": "<p>{{ block.settings.page.title }}</p>",
+            "content": "{{ block.settings.page.content }}",
             "page": ""
           }
         },
