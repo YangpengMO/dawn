@@ -75,16 +75,7 @@
           "settings": {
             "heading": "Shipping & Returns",
             "icon": "truck",
-            "content": "<p>📦 Standard shipping: 5–9 business days  <br/>💰 30-day free returns — no questions asked  <br/>🌍 Shipped from local warehouse (US/EU/CN)</p>",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
+            "content": "<p>📦 Standard shipping: 6–12 business days  <br/>💰 14-day free returns — no questions asked  <br/>🌍 Shipped from local warehouse (US/EU/CN)</p>",
             "page": ""
           }
         },
@@ -115,7 +106,6 @@
         "collapsible_tab_h7Xz3n",
         "collapsible-row-0",
         "collapsible-row-1",
-        "collapsible-row-2",
         "collapsible-row-3",
         "share"
       ],
