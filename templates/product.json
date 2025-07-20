@@ -59,7 +59,10 @@
         "collapsible_tab_h7Xz3n": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "asd"
+            "heading": "Collapsible row",
+            "icon": "apple",
+            "content": "{{ block.settings.page.content }}",
+            "page": "customer-reviews"
           }
         },
         "collapsible-row-0": {
