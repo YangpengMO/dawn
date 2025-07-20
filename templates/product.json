@@ -67,7 +67,7 @@
             "heading": "Materials",
             "icon": "leather",
             "content": "<p>{{ product.metafields.custom.materials | metafield_tag }}</p>",
-            "page": "contact"
+            "page": ""
           }
         },
         "collapsible-row-1": {
