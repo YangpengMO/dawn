@@ -52,16 +52,12 @@
             "show_gift_card_recipient": true
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
         "collapsible_tab_h7Xz3n": {
           "type": "collapsible_tab",
           "settings": {
             "heading": "Collapsible row",
             "icon": "apple",
-            "content": "<p>product.description</p>",
+            "content": "<p>product.description</p>{{ product.description }}",
             "page": "customer-reviews"
           }
         },
@@ -116,7 +112,6 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description",
         "collapsible_tab_h7Xz3n",
         "collapsible-row-0",
         "collapsible-row-1",
