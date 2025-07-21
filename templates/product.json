@@ -23,6 +23,10 @@
           "type": "title",
           "settings": {}
         },
+        "judge_me_reviews_preview_badge_NztW43": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
         "caption": {
           "type": "text",
           "settings": {
@@ -87,6 +91,7 @@
       "block_order": [
         "vendor",
         "title",
+        "judge_me_reviews_preview_badge_NztW43",
         "caption",
         "price",
         "description_pkzNza",
@@ -132,11 +137,18 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "175309191120b39bb7": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
     "recommendations_4n6RCV",
-    "175309186836953350"
+    "175309186836953350",
+    "175309191120b39bb7"
   ]
 }
