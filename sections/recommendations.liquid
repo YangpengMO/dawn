@@ -2,22 +2,23 @@
 {% assign count = recommended_products | map: "id" | size %}
 
 {% if recommended_products and count > 0 %}
-  <div class="recommended-products" style="margin-top: 48px;">
+  <div class="recommended-products" style="margin-top: 48px; text-align: center;">
     <h2 style="font-size: 24px; margin-bottom: 20px;">You May Also Like</h2>
 
     <div style="
       display: flex;
+      justify-content: center;
       gap: 16px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
-      padding-bottom: 8px;
+      padding: 0 12px 8px;
     ">
       {% for product in recommended_products %}
         <div style="
           flex: 0 0 auto;
           width: 220px;
-          scroll-snap-align: start;
+          scroll-snap-align: center;
           border: 1px solid #eee;
           border-radius: 12px;
           padding: 12px;
