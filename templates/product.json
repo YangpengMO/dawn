@@ -117,10 +117,26 @@
       "type": "recommendations",
       "name": "Recommendations",
       "settings": {}
+    },
+    "175309186836953350": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_GYxbEk": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_GYxbEk"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
-    "recommendations_4n6RCV"
+    "recommendations_4n6RCV",
+    "175309186836953350"
   ]
 }
