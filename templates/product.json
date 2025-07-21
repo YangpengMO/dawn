@@ -198,20 +198,12 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "583795816534106504": {
-      "type": "apps",
-      "disabled": true,
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
     "main",
     "442510315723964855",
     "image-with-text",
-    "multicolumn",
-    "583795816534106504"
+    "multicolumn"
   ]
 }
