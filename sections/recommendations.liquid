@@ -1,5 +1,8 @@
 
 {% assign recommended_products = product.metafields.custom.recommendations.value %}
+{% assign recommended_products = product.metafields.custom.recommendations.value %}
+{{ recommended_products.size }}
+
 <div style="padding: 12px; background: #ffe; border: 1px dashed #ccc;">
   {% if recommended_products %}
     {% assign count = 0 %}
@@ -12,7 +15,7 @@
   {% endif %}
 </div>
 
-{% if recommended_products and count > 0 %}
+{% if recommended_products and recommended_products > 0 %}
   <div class="recommended-products" style="margin-top: 48px;">
     <h2 style="font-size: 24px; margin-bottom: 20px;">You May Also Like</h2>
 
