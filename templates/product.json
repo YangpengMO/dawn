@@ -119,6 +119,11 @@
         "include_margins": true
       }
     },
+    "recommendations_3bhrAX": {
+      "type": "recommendations",
+      "name": "Recommendations",
+      "settings": {}
+    },
     "image-with-text": {
       "type": "image-with-text",
       "blocks": {
@@ -228,6 +233,7 @@
   "order": [
     "main",
     "442510315723964855",
+    "recommendations_3bhrAX",
     "image-with-text",
     "multicolumn",
     "related-products",
