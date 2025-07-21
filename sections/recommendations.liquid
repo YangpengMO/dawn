@@ -1,17 +1,16 @@
 
 {% assign recommended_products = product.metafields.custom.recommendations.value %}
 
-<div style="padding: 12px; background: #ffe; border: 1px dashed #ccc;">
-  {% if recommended_products %}
-    {% assign count = 0 %}
-    {% for rp in recommended_products %}
-      {% assign count = count | plus: 1 %}
-    {% endfor %}
-    ✅ Found {{ count }} recommended products.
-  {% else %}
-    ❌ No recommendations metafield set.
-  {% endif %}
-</div>
+{% if recommended_products %}
+  <ul>
+  {% for rp in recommended_products %}
+    <li><a href="{{ rp.url }}">{{ rp.title }}</a></li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No recommended products found.</p>
+{% endif %}
+
 
 {% if recommended_products and recommended_products > 0 %}
   <div class="recommended-products" style="margin-top: 48px;">
