@@ -1,3 +1,10 @@
+<div style="padding: 12px; background: #ffe; border: 1px dashed #ccc;">
+  {% if recommended_products %}
+    Found {{ recommended_products.size }} recommended products.
+  {% else %}
+    No recommendations metafield set.
+  {% endif %}
+</div>
 
 {% assign recommended_products = product.metafields.custom.recommendations.value %}
 
