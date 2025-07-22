@@ -89,7 +89,10 @@
                     </h3>
                     {{- 'icon-caret.svg' | inline_asset_content -}}
                   </summary>
-                  <p style="color:red;">Heading = {{ block.settings.heading }}</p>
+                  
+<!-- 👇调试代码（加在这里） -->
+<p style="color:red; font-size: 14px;">Heading = {{ block.settings.heading }}</p>
+
                   <div
                     class="accordion__content rte"
                     id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}"
