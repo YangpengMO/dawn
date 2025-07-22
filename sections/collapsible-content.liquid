@@ -1,6 +1,12 @@
 {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
 {{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
 
+<details
+  id="Details-{{ block.id }}"
+  class="product__accordion"
+  {% if block.settings.heading == 'Highlights' or block.settings.open %} open {% endif %}
+>
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
