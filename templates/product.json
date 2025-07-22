@@ -38,6 +38,12 @@
           "type": "price",
           "settings": {}
         },
+        "custom_liquid_djzVWm": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": ""
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -99,6 +105,7 @@
         "judge_me_reviews_preview_badge_NztW43",
         "caption",
         "price",
+        "custom_liquid_djzVWm",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
