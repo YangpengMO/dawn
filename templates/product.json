@@ -71,21 +71,21 @@
             "page": ""
           }
         },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "<p>📦 Standard shipping: 6–12 business days  <br/>💰 14-day free returns — no questions asked  <br/>🌍 Shipped from local warehouse (US/EU/CN)</p>",
-            "page": ""
-          }
-        },
         "collapsible-row-3": {
           "type": "collapsible_tab",
           "settings": {
             "heading": "Care Instructions",
             "icon": "heart",
             "content": "<p>{{ product.metafields.custom.care_instructions | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
+        "collapsible-row-1": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & Returns",
+            "icon": "truck",
+            "content": "<p>📦 Standard shipping: 6–12 business days  <br/>💰 14-day free returns — no questions asked  <br/>🌍 Shipped from local warehouse (US/EU/CN)</p>",
             "page": ""
           }
         }
@@ -101,8 +101,8 @@
         "quantity_selector",
         "buy_buttons",
         "collapsible-row-0",
-        "collapsible-row-1",
-        "collapsible-row-3"
+        "collapsible-row-3",
+        "collapsible-row-1"
       ],
       "settings": {
         "enable_sticky_info": true,
