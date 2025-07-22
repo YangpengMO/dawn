@@ -78,6 +78,8 @@
                   id="Details-{{ block.id }}-{{ section.id }}"
                   {% if section.settings.open_first_collapsible_row and forloop.first %}
                     open
+                  {% elsif block.settings.heading == 'Highlights' %}
+                    open
                   {% endif %}
                 >
                   <summary id="Summary-{{ block.id }}-{{ section.id }}">
