@@ -89,16 +89,14 @@
                     </h3>
                     {{- 'icon-caret.svg' | inline_asset_content -}}
                   </summary>
-                  
-<!-- 👇调试代码（加在这里） -->
-<p style="color:red; font-size: 14px;">Heading = {{ block.settings.heading }}</p>
-
                   <div
                     class="accordion__content rte"
                     id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}"
                     role="region"
                     aria-labelledby="Summary-{{ block.id }}-{{ section.id }}"
                   >
+                    {{ block.settings.row_content }}
+                    {{ block.settings.page.content }}
                   </div>
                 </details>
               </div>
