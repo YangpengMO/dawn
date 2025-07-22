@@ -71,15 +71,6 @@
       onload="this.media='all'"
     >
   {%- endif -%}
-  
-{% if product.metafields.custom.highlights != blank %}
-  <div class="product-highlights" style="margin: 2rem 0; padding: 1.5rem; background-color: #f8f8f8; border-radius: 12px;">
-    <h2 style="font-size: 1.4rem; margin-bottom: 1rem;">✨ Highlights</h2>
-    <div style="line-height: 1.8; white-space: pre-line;">
-      {{ product.metafields.custom.highlights | metafield_tag }}
-    </div>
-  </div>
-{% endif %}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
