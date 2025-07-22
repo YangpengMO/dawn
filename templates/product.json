@@ -62,15 +62,6 @@
             "show_gift_card_recipient": true
           }
         },
-        "collapsible_tab_3PL7Aj": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Highlights",
-            "icon": "check_mark",
-            "content": "<p>{{ product.metafields.custom.highlights | metafield_tag }}</p>",
-            "page": ""
-          }
-        },
         "collapsible-row-0": {
           "type": "collapsible_tab",
           "settings": {
@@ -109,7 +100,6 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "collapsible_tab_3PL7Aj",
         "collapsible-row-0",
         "collapsible-row-1",
         "collapsible-row-3"
