@@ -41,7 +41,7 @@
         "custom_liquid_djzVWm": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "{% comment %}\n  显示 custom.highlights 的内容（假设是富文本或纯文本）\n  你需要确保 metafield 路径正确，根据你 store 实际结构调整。\n{% endcomment %}\n\n{% assign highlights = product.metafields.custom.highlights %}\n\n{% if highlights and highlights.value != blank %}\n  <div class=\"product-highlights rte\">\n    {{ highlights.value | raw }}\n  </div>\n{% else %}\n  <p>No highlights available.</p>\n{% endif %}"
+            "custom_liquid": "{% comment %}\n  展示产品 metafield custom.highlights 内容的模块\n  - 确保 metafield 已正确设置，且命名空间为 custom，key 为 highlights\n  - 支持富文本显示\n  - 如果没有内容，显示提示信息\n{% endcomment %}\n\n{% assign highlights = product.metafields.custom.highlights %}\n\n{% if highlights and highlights.value != blank %}\n  <div class=\"product-highlights rte\" role=\"region\" aria-label=\"Product Highlights\">\n    {{ highlights.value | raw }}\n  </div>\n{% else %}\n  <p class=\"product-highlights--empty\" aria-live=\"polite\">No highlights available.</p>\n{% endif %}"
           }
         },
         "variant_picker": {
