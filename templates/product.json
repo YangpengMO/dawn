@@ -116,35 +116,15 @@
     "rich_text_qXc6dz": {
       "type": "rich-text",
       "blocks": {
-        "heading_bb4DXH": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
         "text_gwmyVM": {
           "type": "text",
           "settings": {
             "text": "{{ product.description }}"
           }
-        },
-        "button_hF8ViT": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
         }
       },
       "block_order": [
-        "heading_bb4DXH",
-        "text_gwmyVM",
-        "button_hF8ViT"
+        "text_gwmyVM"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
