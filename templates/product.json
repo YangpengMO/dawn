@@ -38,10 +38,6 @@
           "type": "price",
           "settings": {}
         },
-        "description_pkzNza": {
-          "type": "description",
-          "settings": {}
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -94,7 +90,6 @@
         "judge_me_reviews_preview_badge_NztW43",
         "caption",
         "price",
-        "description_pkzNza",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
