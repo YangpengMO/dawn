@@ -9,54 +9,6 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Safe & Stylish Cat Essentials Loved by 10,000+ Pet Parents",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "From cozy beds to mess-free feeders — designed for both cats and homes.",
-            "text_style": "caption-with-letter-spacing"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Now",
-            "button_link_1": "/collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/S9c02b1d146aa4c0692fd6610597846a7U.webp",
-        "image_overlay_opacity": 30,
-        "image_height": "large",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-right",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-c545e3e8-e563-43e9-bc9e-484dc5c7b2f7",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
-      }
-    },
     "category_overlay_WDHNzd": {
       "type": "category-overlay",
       "blocks": {
@@ -255,7 +207,6 @@
     }
   },
   "order": [
-    "image_banner",
     "category_overlay_WDHNzd",
     "featured_collection",
     "reasons_multicolumn",
