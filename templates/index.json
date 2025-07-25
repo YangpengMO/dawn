@@ -47,7 +47,7 @@
         "image": "shopify://shop_images/S9c02b1d146aa4c0692fd6610597846a7U.webp",
         "image_overlay_opacity": 30,
         "image_height": "large",
-        "image_behavior": "zoom-in",
+        "image_behavior": "none",
         "desktop_content_position": "top-center",
         "desktop_content_alignment": "center",
         "show_text_box": false,
