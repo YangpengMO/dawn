@@ -110,7 +110,7 @@
     top: 0;
     left: 0;
     right: 0;
-    margin: auto;
+    margin: 0;
     background: transparent;
     padding: 2rem 1.5rem;
     text-align: center;
@@ -151,6 +151,7 @@
         {{ 'hero-apparel-1' | placeholder_svg_tag }}
       {% endif %}
     </div>
+    <div class="cat-hero-banner__content">
       {% if section.settings.eyebrow != blank %}
         <div class="cat-hero-banner__eyebrow">{{ section.settings.eyebrow }}</div>
       {% endif %}
@@ -206,12 +207,6 @@
       "type": "url",
       "id": "button_link",
       "label": "Button Link"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Color Scheme",
-      "default": "background-1"
     }
   ],
   "presets": [
