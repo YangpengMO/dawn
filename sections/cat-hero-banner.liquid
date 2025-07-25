@@ -24,6 +24,7 @@
   position: relative;
   overflow: hidden;
   height: 60vh;
+  order: 2;
 }
 
 .cat-hero-banner__img {
@@ -43,6 +44,7 @@
   color: #000;
   text-align: left;
   min-height: 60vh;
+  order: 1;
 }
 
 .cat-hero-banner__eyebrow {
@@ -104,6 +106,11 @@
   .cat-hero-banner__content {
     padding: 2rem 1.5rem;
     text-align: center;
+    order: 1;
+  }
+
+  .cat-hero-banner__image {
+    order: 2;
   }
 
   .cat-hero-banner__heading {
@@ -123,18 +130,6 @@
 
 <section class="cat-hero-banner">
   <div class="cat-hero-banner__wrapper">
-    <div class="cat-hero-banner__image">
-      {% if section.settings.image != blank %}
-        <img
-          src="{{ section.settings.image | image_url: width: 1500 }}"
-          alt="{{ section.settings.image.alt | escape }}"
-          loading="lazy"
-          class="cat-hero-banner__img"
-        >
-      {% else %}
-        {{ 'hero-apparel-1' | placeholder_svg_tag }}
-      {% endif %}
-    </div>
     <div class="cat-hero-banner__content color-{{ section.settings.color_scheme }}">
       {% if section.settings.eyebrow != blank %}
         <div class="cat-hero-banner__eyebrow">{{ section.settings.eyebrow }}</div>
@@ -149,6 +144,18 @@
         <a href="{{ section.settings.button_link }}" class="button button--primary">
           {{ section.settings.button_label }}
         </a>
+      {% endif %}
+    </div>
+    <div class="cat-hero-banner__image">
+      {% if section.settings.image != blank %}
+        <img
+          src="{{ section.settings.image | image_url: width: 1500 }}"
+          alt="{{ section.settings.image.alt | escape }}"
+          loading="lazy"
+          class="cat-hero-banner__img"
+        >
+      {% else %}
+        {{ 'hero-apparel-1' | placeholder_svg_tag }}
       {% endif %}
     </div>
   </div>
