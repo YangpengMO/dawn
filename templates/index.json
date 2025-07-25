@@ -16,14 +16,14 @@
           "type": "heading",
           "settings": {
             "heading": "Safe & Stylish Cat Essentials Loved by 10,000+ Pet Parents",
-            "heading_size": "h0"
+            "heading_size": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
             "text": "From cozy beds to mess-free feeders — designed for both cats and homes.",
-            "text_style": "subtitle"
+            "text_style": "caption-with-letter-spacing"
           }
         },
         "button": {
@@ -44,13 +44,13 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/ChatGPT_Image_2025_7_24_15_18_19.png",
+        "image": "shopify://shop_images/S9c02b1d146aa4c0692fd6610597846a7U.webp",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "image_behavior": "none",
-        "desktop_content_position": "middle-right",
+        "desktop_content_position": "top-center",
         "desktop_content_alignment": "center",
-        "show_text_box": false,
+        "show_text_box": true,
         "color_scheme": "scheme-c545e3e8-e563-43e9-bc9e-484dc5c7b2f7",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
