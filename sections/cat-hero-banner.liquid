@@ -1,62 +1,214 @@
-<section class="cat-hero-banner">
-  <div class="cat-hero-banner__wrapper page-width">
-    <div class="cat-hero-banner__image">
-      {% if section.settings.image != blank %}
+{% stylesheet %}
+.category-overlay__title {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 32px;
+  font-weight: 600;
+  color: #333;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 1.5rem;
+}
+
+.category-grid__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.category-grid__item:hover {
+  transform: scale(1.03);
+  z-index: 1;
+}
+
+.category-grid__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+}
+
+.category-grid__link {
+  position: absolute;
+  inset: 0;
+  display: flex; 
+
+  
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 1rem;
+  text-decoration: none;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  transition: background 0.3s ease;
+  border-radius: 12px;
+}
+
+.category-grid__link:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.category-grid__item--large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+@media screen and (max-width: 900px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 32px 1rem;
+  }
+
+  .category-grid__item,
+  .category-grid__item--large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .category-grid__item--large {
+    grid-column: span 2;
+    margin-bottom: 16px;
+  }
+
+  .category-grid__image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .category-grid__item--large .category-grid__image {
+    aspect-ratio: 4 / 2.2;
+  }
+
+  .category-grid__link {
+    font-size: 1.2rem;
+    padding: 0.75rem;
+  }
+}
+{% endstylesheet %}
+
+{% if section.settings.title != blank %}
+  <h2 class="category-overlay__title">{{ section.settings.title }}</h2>
+{% endif %}
+
+<div class="category-grid">
+  {% assign blocks = section.blocks | slice: 0, 5 %}
+  {% for block in blocks %}
+    <div class="category-grid__item {% if forloop.first %}category-grid__item--large{% endif %}">
+      {% if block.settings.image %}
         <img
-          src="{{ section.settings.image | image_url: width: 1500 }}"
-          alt="{{ section.settings.image.alt | escape }}"
+          src="{{ block.settings.image | image_url: width: 1200 }}"
+          width="1200"
+          height="900"
+          alt="{{ block.settings.title }}"
+          class="category-grid__image"
           loading="lazy"
-          width="750"
-          height="auto"
         >
-      {% else %}
-        {{ 'hero-apparel-1' | placeholder_svg_tag }}
+      {% endif %}
+      {% if block.settings.link %}
+        <a href="{{ block.settings.link }}" class="category-grid__link">
+          {{ block.settings.title }}
+          <span>&rarr;</span>
+        </a>
       {% endif %}
     </div>
-    <div class="cat-hero-banner__content color-{{ section.settings.color_scheme }}">
-      <h2 class="cat-hero-banner__heading">Home is where the purr is.</h2>
-      <p class="cat-hero-banner__text">
-        Cozy spaces, smart feeders,<br>
-        and playful moments — all designed for your cat’s joy.
-      </p>
-      <a href="{{ section.settings.button_link }}" class="button button--primary">
-        {{ section.settings.button_label }}
-      </a>
-    </div>
-  </div>
-</section>
+  {% endfor %}
+</div>
 
 {% schema %}
 {
-  "name": "Cat Hero Banner",
+  "name": "Category Grid",
+  "max_blocks": 6,
   "settings": [
     {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Banner Image"
-    },
-    {
       "type": "text",
-      "id": "button_label",
-      "label": "Button Label",
-      "default": "Shop the Collection"
-    },
+      "id": "title",
+      "label": "Section Title",
+      "default": "Shop by Category"
+    }
+  ],
+  "blocks": [
     {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button Link"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Color Scheme",
-      "default": "background-1"
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Cat Beds"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Cat Hero Banner",
-      "category": "Image"
+      "name": "Category Grid",
+      "category": "Custom",
+      "settings": {
+        "title": "Shop by Category"
+      },
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "title": "New & Innovation",
+            "link": "/collections/innovation"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Travel & Care",
+            "link": "/collections/travel-care"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Eat & Drink",
+            "link": "/collections/eat-drink"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Play & Scratch",
+            "link": "/collections/play-scratch"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Furniture",
+            "link": "/collections/furniture"
+          }
+        }
+      ]
     }
   ]
 }
