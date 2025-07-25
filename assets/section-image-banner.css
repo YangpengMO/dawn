@@ -395,6 +395,10 @@
   height: 100%;
 }
 
+.banner--split::after {
+  display: none;
+}
+
 .banner__box > * + .banner__text {
   margin-top: 1.5rem;
 }
@@ -488,5 +492,30 @@
   .banner--desktop-transparent .inline-richtext a:hover,
   .banner--desktop-transparent .rte a:hover {
     color: currentColor;
+  }
+}
+
+.banner--split {
+  position: relative;
+}
+
+.banner--split .banner__media {
+  position: relative;
+  width: 50%;
+}
+
+.banner--split .banner__content {
+  position: relative;
+  width: 50%;
+}
+
+@media screen and (max-width: 749px) {
+  .banner--split {
+    flex-direction: column;
+  }
+
+  .banner--split .banner__media,
+  .banner--split .banner__content {
+    width: 100%;
   }
 }
