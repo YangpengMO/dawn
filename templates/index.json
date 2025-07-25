@@ -14,11 +14,61 @@
       "name": "Cat Hero Banner",
       "settings": {
         "image": "shopify://shop_images/S9c02b1d146aa4c0692fd6610597846a7U.webp",
+        "eyebrow": "Step Into Comfort",
         "heading": "Home is where the purr is.",
         "text": "Cozy spaces, smart feeders, and playful moments — all designed for your cat’s joy.",
         "button_label": "Shop the Collection",
-        "button_link": "",
+        "button_link": "shopify://collections",
         "color_scheme": ""
+      }
+    },
+    "image_banner_WHy3Fg": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_UdDcEr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Home is where the purr is.",
+            "heading_size": "h1"
+          }
+        },
+        "text_GG6P8a": {
+          "type": "text",
+          "settings": {
+            "text": "Cozy spaces, smart feeders, and playful moments — all designed for your cat’s joy.",
+            "text_style": "body"
+          }
+        },
+        "buttons_zkKeDq": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop the Collection",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_UdDcEr",
+        "text_GG6P8a",
+        "buttons_zkKeDq"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/S9c02b1d146aa4c0692fd6610597846a7U.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
       }
     },
     "category_overlay_WDHNzd": {
@@ -220,6 +270,7 @@
   },
   "order": [
     "cat_hero_banner_e93Hzi",
+    "image_banner_WHy3Fg",
     "category_overlay_WDHNzd",
     "featured_collection",
     "reasons_multicolumn",
