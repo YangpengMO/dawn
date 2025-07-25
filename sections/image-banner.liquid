@@ -53,6 +53,12 @@
   if section.index == 1
     assign fetch_priority = 'high'
   endif
+  assign banner_image_alt = section.settings.image.alt | escape
+  assign banner_image_alt_2 = section.settings.image_2.alt | escape
+  assign loading = 'lazy'
+  if section.index == 1
+    assign loading = 'eager'
+  endif
 -%}
 
 <div
