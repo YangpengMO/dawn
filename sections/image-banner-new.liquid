@@ -1,6 +1,63 @@
+<section class="cat-hero-banner">
+  <div class="cat-hero-banner__wrapper page-width">
+    <div class="cat-hero-banner__image">
+      {% if section.settings.image != blank %}
+        <img
+          src="{{ section.settings.image | image_url: width: 1500 }}"
+          alt="{{ section.settings.image.alt | escape }}"
+          loading="lazy"
+          width="750"
+          height="auto"
+        >
+      {% else %}
+        {{ 'hero-apparel-1' | placeholder_svg_tag }}
+      {% endif %}
+    </div>
+    <div class="cat-hero-banner__content color-{{ section.settings.color_scheme }}">
+      <h2 class="cat-hero-banner__heading">Home is where the purr is.</h2>
+      <p class="cat-hero-banner__text">
+        Cozy spaces, smart feeders,<br>
+        and playful moments — all designed for your cat’s joy.
+      </p>
+      <a href="{{ section.settings.button_link }}" class="button button--primary">
+        {{ section.settings.button_label }}
+      </a>
+    </div>
+  </div>
+</section>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Cat Hero Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop the Collection"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "background-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cat Hero Banner",
+      "category": "Image"
+    }
+  ]
+}
 {% endschema %}
