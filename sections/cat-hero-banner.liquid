@@ -1,62 +1,83 @@
 {% stylesheet %}
 .cat-hero-banner {
-  margin: 60px 0;
+  margin: 0;
+  background-color: #111;
+  color: #fff;
+  background-image: url('https://cdn.shopify.com/s/files/1/0680/4150/7113/files/banner-bg-texture.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0;
 }
 
 .cat-hero-banner__wrapper {
   display: flex;
   flex-direction: row;
-  gap: 40px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
   flex-wrap: wrap;
+  gap: 40px;
 }
 
 .cat-hero-banner__image {
   flex: 1 1 50%;
-  max-width: 700px;
+  position: relative;
 }
 
 .cat-hero-banner__img {
   width: 100%;
   height: auto;
+  border-radius: 0;
   object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .cat-hero-banner__content {
-  flex: 1 1 50%;
-  max-width: 600px;
-  padding: 1rem;
+  flex: 1 1 45%;
+  max-width: 580px;
+  padding: 1rem 0;
+  color: #fff;
+}
+
+.cat-hero-banner__eyebrow {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  color: #ccc;
 }
 
 .cat-hero-banner__heading {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 2.75rem;
+  font-weight: 800;
   margin-bottom: 1rem;
-  color: #222;
+  color: #f472b6;
+  line-height: 1.2;
 }
 
 .cat-hero-banner__text {
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-  color: #555;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
   line-height: 1.6;
 }
 
 .button.button--primary {
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-  background-color: #000;
-  color: #fff;
-  border-radius: 6px;
+  font-size: 0.95rem;
+  padding: 0.9rem 1.75rem;
+  background-color: #fff;
+  color: #000;
+  border-radius: 0;
   text-decoration: none;
-  transition: background 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  display: inline-block;
 }
 
 .button.button--primary:hover {
-  background-color: #333;
+  background-color: #f472b6;
+  color: #fff;
 }
 
 @media screen and (max-width: 749px) {
@@ -78,15 +99,11 @@
   .cat-hero-banner__text {
     font-size: 1rem;
   }
-
-  .button.button--primary {
-    font-size: 1rem;
-  }
 }
 {% endstylesheet %}
 
 <section class="cat-hero-banner">
-  <div class="cat-hero-banner__wrapper page-width">
+  <div class="cat-hero-banner__wrapper">
     <div class="cat-hero-banner__image">
       {% if section.settings.image != blank %}
         <img
@@ -102,6 +119,9 @@
       {% endif %}
     </div>
     <div class="cat-hero-banner__content color-{{ section.settings.color_scheme }}">
+      {% if section.settings.eyebrow != blank %}
+        <div class="cat-hero-banner__eyebrow">{{ section.settings.eyebrow }}</div>
+      {% endif %}
       {% if section.settings.heading != blank %}
         <h2 class="cat-hero-banner__heading">{{ section.settings.heading }}</h2>
       {% endif %}
@@ -128,21 +148,27 @@
     },
     {
       "type": "text",
+      "id": "eyebrow",
+      "label": "Top Eyebrow Text",
+      "default": "Step Into Comfort"
+    },
+    {
+      "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Home is where the purr is."
+      "default": "HEYDUDE X HELLO KITTY"
     },
     {
       "type": "textarea",
       "id": "text",
       "label": "Sub Text",
-      "default": "Cozy spaces, smart feeders, and playful moments — all designed for your cat’s joy."
+      "default": "Hello Kitty, forever! Introducing our newest footwear collab featuring HEYDUDE."
     },
     {
       "type": "text",
       "id": "button_label",
       "label": "Button Label",
-      "default": "Shop the Collection"
+      "default": "Shop the Drop"
     },
     {
       "type": "url",
