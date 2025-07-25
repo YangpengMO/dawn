@@ -9,6 +9,18 @@
  */
 {
   "sections": {
+    "cat_hero_banner_e93Hzi": {
+      "type": "cat-hero-banner",
+      "name": "Cat Hero Banner",
+      "settings": {
+        "image": "shopify://shop_images/S9c02b1d146aa4c0692fd6610597846a7U.webp",
+        "heading": "Home is where the purr is.",
+        "text": "Cozy spaces, smart feeders, and playful moments — all designed for your cat’s joy.",
+        "button_label": "Shop the Collection",
+        "button_link": "",
+        "color_scheme": ""
+      }
+    },
     "category_overlay_WDHNzd": {
       "type": "category-overlay",
       "blocks": {
@@ -207,6 +219,7 @@
     }
   },
   "order": [
+    "cat_hero_banner_e93Hzi",
     "category_overlay_WDHNzd",
     "featured_collection",
     "reasons_multicolumn",
