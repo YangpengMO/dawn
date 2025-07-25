@@ -64,7 +64,7 @@
           "type": "category",
           "settings": {
             "image": "shopify://shop_images/eric-han-WJ6fmN1D-h0-unsplash.jpg",
-            "title": "New & Innovation",
+            "title": "New Arrivals",
             "link": "/collections/innovation"
           }
         },
@@ -72,32 +72,32 @@
           "type": "category",
           "settings": {
             "image": "shopify://shop_images/cat_playing_2.jpg",
-            "title": "Travel & Care",
-            "link": "/collections/travel-care"
+            "title": "Clean & Care",
+            "link": "shopify://collections/cat-scratchers"
           }
         },
         "category_fRhqYN": {
           "type": "category",
           "settings": {
             "image": "shopify://shop_images/cat_playing_2.jpg",
-            "title": "Eat & Drink",
-            "link": "/collections/eat-drink"
+            "title": "Drink & Water",
+            "link": "shopify://collections/frontpage"
           }
         },
         "category_DK8tNa": {
           "type": "category",
           "settings": {
             "image": "shopify://shop_images/cat_playing_compressed.jpg",
-            "title": "Play & Scratch",
-            "link": "/collections/play-scratch"
+            "title": "Play & Fun",
+            "link": "shopify://collections/fresh-playtime"
           }
         },
         "category_rYtrwb": {
           "type": "category",
           "settings": {
             "image": "shopify://shop_images/cat_playing_2.jpg",
-            "title": "Furniture",
-            "link": "/collections/furniture"
+            "title": "Feeders & Dispensers",
+            "link": "shopify://collections/litter-box"
           }
         }
       },
