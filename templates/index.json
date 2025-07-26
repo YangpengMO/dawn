@@ -105,6 +105,11 @@
         "padding_bottom": 36
       }
     },
+    "why_choose_us_gFDKcc": {
+      "type": "Why-Choose-Us",
+      "name": "Why Choose Us",
+      "settings": {}
+    },
     "reasons_multicolumn": {
       "type": "multicolumn",
       "blocks": {
@@ -222,6 +227,7 @@
     "cat_hero_banner_e93Hzi",
     "category_overlay_WDHNzd",
     "featured_collection",
+    "why_choose_us_gFDKcc",
     "reasons_multicolumn",
     "customer_reviews_dRbn9m",
     "899856179604056102"
