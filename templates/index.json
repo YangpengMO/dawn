@@ -110,59 +110,6 @@
       "name": "Why Choose Us",
       "settings": {}
     },
-    "reasons_multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "<p>Soft, cozy materials your cat will love curling up in.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "<p>Chosen by thousands of pet owners for safe, durable design.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "<p>Modern, aesthetic products that fit beautifully into your home.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
-      "settings": {
-        "title": "Why Choose Us",
-        "heading_size": "h2",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-c545e3e8-e563-43e9-bc9e-484dc5c7b2f7",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 40,
-        "padding_bottom": 36
-      }
-    },
     "customer_reviews_dRbn9m": {
       "type": "customer-reviews",
       "blocks": {
@@ -228,7 +175,6 @@
     "category_overlay_WDHNzd",
     "featured_collection",
     "why_choose_us_gFDKcc",
-    "reasons_multicolumn",
     "customer_reviews_dRbn9m",
     "899856179604056102"
   ]
