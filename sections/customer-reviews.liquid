@@ -1,88 +1,123 @@
 {% stylesheet %}
-.static-reviews {
-  background-color: #f3f7f9;
+.testimonial-banner {
+  background-color: #ffcbe3;
   text-align: center;
   padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
 }
 
-.static-reviews .stars {
-  font-size: 20px;
-  color: #ccc;
-  margin-bottom: 12px;
-  letter-spacing: 4px;
-}
-
-.static-reviews h2 {
+.testimonial-heading {
   font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #222;
-}
-
-.static-reviews .subheading {
-  font-size: 15px;
-  color: #666;
+  font-weight: 700;
   margin-bottom: 40px;
+  color: #000;
 }
 
-.review-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
+.testimonial-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.review-item {
-  font-size: 16px;
-  color: #333;
-  line-height: 1.8;
-  font-style: normal;
+.testimonial-slide {
+  min-width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
-.review-item .author {
-  display: block;
-  font-size: 15px;
-  font-style: italic;
-  margin-top: 16px;
-  color: #000;
+.testimonial-text {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.testimonial-author {
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+}
+
+.testimonial-dots {
+  margin-top: 30px;
+}
+
+.testimonial-dots .dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 6px;
+  background-color: #999;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+.testimonial-dots .dot.active {
+  background-color: #000;
 }
 {% endstylesheet %}
 
-<section class="static-reviews">
-  <div class="stars">★ ★ ★ ★ ★</div>
-  <h2>{{ section.settings.heading }}</h2>
-  {% if section.settings.subheading != blank %}
-    <div class="subheading">{{ section.settings.subheading }}</div>
-  {% endif %}
-
-  <div class="review-grid">
+<div class="testimonial-banner">
+  <div class="testimonial-heading">{{ section.settings.heading_text }}</div>
+  <div class="testimonial-slider" id="testimonialSlider">
     {% for block in section.blocks %}
-      <div class="review-item">
-        “{{ block.settings.text }}”
+      <div class="testimonial-slide">
+        <p class="testimonial-text">“{{ block.settings.text }}”</p>
         {% if block.settings.author != blank %}
-          <span class="author">– {{ block.settings.author }}</span>
+          <div class="testimonial-author">– {{ block.settings.author }}</div>
         {% endif %}
       </div>
     {% endfor %}
   </div>
-</section>
+  <div class="testimonial-dots" id="testimonialDots">
+    {% for block in section.blocks %}
+      <span class="dot{% if forloop.first %} active{% endif %}" data-index="{{ forloop.index0 }}"></span>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  let currentIndex = 0;
+  const slides = document.querySelectorAll(".testimonial-slide");
+  const dots = document.querySelectorAll(".testimonial-dots .dot");
+
+  function showSlide(index) {
+    const slider = document.getElementById("testimonialSlider");
+    slider.style.transform = `translateX(-${index * 100}%)`;
+
+    dots.forEach(dot => dot.classList.remove("active"));
+    if (dots[index]) dots[index].classList.add("active");
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener("click", function () {
+      currentIndex = parseInt(this.dataset.index);
+      showSlide(currentIndex);
+    });
+  });
+
+  setInterval(nextSlide, 5000);
+</script>
 
 {% schema %}
 {
-  "name": "Static Review Grid",
+  "name": "Testimonial Banner",
+  "tag": "section",
+  "class": "section",
   "settings": [
     {
       "type": "text",
-      "id": "heading",
-      "label": "Main Heading",
-      "default": "Making Tails Wag"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "Over 10,000 five-star reviews from happy pet parents. Find out why people love our brand."
+      "id": "heading_text",
+      "label": "Heading Text",
+      "default": "3,000+ 5 Star Reviews"
     }
   ],
   "blocks": [
@@ -94,31 +129,57 @@
           "type": "textarea",
           "id": "text",
           "label": "Review Text",
-          "default": "We love all our Foggy Dog products. Excellent quality, beautiful fabrics and I love that every purchase feeds a shelter dog."
+          "default": "My cat sleeps better than I do now!"
         },
         {
           "type": "text",
           "id": "author",
           "label": "Reviewer Name",
-          "default": "Taya A."
+          "default": "Verified Buyer"
         }
       ]
     }
   ],
-  "max_blocks": 6,
+  "max_blocks": 10,
   "presets": [
     {
-      "name": "Static Review Grid",
+      "name": "Customer Reviews Carousel",
       "category": "Testimonials",
       "blocks": [
         {
-          "type": "review"
+          "type": "review",
+          "settings": {
+            "text": "I purchased this cat bed for my furry friend, and it exceeded all my expectations! The material is incredibly soft and cushy, and my cat immediately took a liking to it — she hasn't wanted to leave since. It’s sturdy and well-constructed, so I’m not worried about it collapsing even with her jumping in and out. Cleaning is a breeze since the cover is removable and machine washable. Plus, the design is stylish enough to blend seamlessly with my home décor. I’m definitely planning to buy more products from this store in the future!",
+            "author": "Emily R."
+          }
         },
         {
-          "type": "review"
+          "type": "review",
+          "settings": {
+            "text": "The scratching board is top-notch quality — no rough edges or splinters that could hurt my cat’s paws. The thickness and firmness are perfect: sturdy enough for effective scratching, but gentle enough on her claws. After a few weeks, it already shows clear scratch marks, which means my cat loves it and my furniture is safe! The packaging was neat, and the shipping was fast. Customer service was friendly and helpful. Highly recommend this for any cat owner!",
+            "author": "Jason M."
+          }
         },
         {
-          "type": "review"
+          "type": "review",
+          "settings": {
+            "text": "I bought this cat toy set, and it’s been a huge hit! The toys come in various fun shapes and bright colors, all made with safe, non-toxic materials that feel great to touch. My cat enjoys chasing and biting them and never seems bored. The feather teaser wand is a favorite — my cat chases it endlessly every day! These toys are durable too; after months of play, they’re still in great shape. The packaging was careful, and delivery was quick. Overall, a fantastic shopping experience!",
+            "author": "Verified Buyer"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "The cat bed recommended by the seller is really well designed — it’s breathable and keeps my cat warm during cold days. She feels safe and cozy whenever she’s inside. The neutral color fits perfectly in my living room without clashing with the décor. The seller was prompt with shipping and answered all my questions patiently. I’m very happy with my purchase and will keep supporting this store!",
+            "author": "Verified Buyer"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "Right after receiving the scratching board, I let my cat try it, and she instantly loved it. The board is solid and durable with eco-friendly materials and no unpleasant odors. The design is sleek and doesn’t disrupt my home’s aesthetic at all. Shipping was fast and the package arrived intact. Customer service was excellent as well. I highly recommend this product to anyone looking for a reliable scratching solution!",
+            "author": "Verified Buyer"
+          }
         }
       ]
     }
