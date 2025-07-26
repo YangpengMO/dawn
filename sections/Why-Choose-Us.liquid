@@ -13,6 +13,13 @@
   font-family: 'Poppins', 'Helvetica Neue', sans-serif;
 }
 
+.why-choose-us__subtitle {
+  font-size: 1.6rem;
+  color: #888;
+  margin-bottom: 56px;
+  font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+}
+
 .why-choose-us__features {
   display: flex;
   gap: 40px;
@@ -28,11 +35,12 @@
   padding: 32px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .why-choose-us__feature:hover {
   transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
 .why-choose-us__icon {
@@ -42,20 +50,22 @@
 }
 
 .why-choose-us__heading {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: 600;
   margin-bottom: 12px;
 }
 
 .why-choose-us__text {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: #666;
-  line-height: 1.6;
+  line-height: 1.7;
+  font-family: 'Poppins', 'Helvetica Neue', sans-serif;
 }
 {% endstylesheet %}
 
 <section class="why-choose-us">
   <h2 class="why-choose-us__title">Why Choose Us</h2>
+  <div class="why-choose-us__subtitle">We’re more than a pet store — we’re your companion in care, comfort and play.</div>
   <div class="why-choose-us__features">
     <div class="why-choose-us__feature">
       <div class="why-choose-us__icon">🐾</div>
@@ -65,12 +75,17 @@
     <div class="why-choose-us__feature">
       <div class="why-choose-us__icon">🚚</div>
       <div class="why-choose-us__heading">Fast Global Shipping</div>
-      <div class="why-choose-us__text">We ship worldwide with reliable tracking and friendly return policy.</div>
+      <div class="why-choose-us__text">We ship worldwide with reliable tracking and a flexible return policy.</div>
     </div>
     <div class="why-choose-us__feature">
       <div class="why-choose-us__icon">💬</div>
-      <div class="why-choose-us__heading">Customer Support</div>
-      <div class="why-choose-us__text">Our dedicated team is always here to help — real people, real care.</div>
+      <div class="why-choose-us__heading">Human Support</div>
+      <div class="why-choose-us__text">Our team is always here — real humans, real care, real quick.</div>
+    </div>
+    <div class="why-choose-us__feature">
+      <div class="why-choose-us__icon">🌿</div>
+      <div class="why-choose-us__heading">Sustainable Products</div>
+      <div class="why-choose-us__text">Eco-friendly materials and mindful production are at our core.</div>
     </div>
   </div>
 </section>
