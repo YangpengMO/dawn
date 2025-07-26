@@ -105,11 +105,6 @@
         "padding_bottom": 36
       }
     },
-    "why_choose_us_gFDKcc": {
-      "type": "Why-Choose-Us",
-      "name": "Why Choose Us",
-      "settings": {}
-    },
     "customer_reviews_dRbn9m": {
       "type": "customer-reviews",
       "blocks": {
@@ -157,10 +152,12 @@
         "review_hnPcy6"
       ],
       "name": "Customer Reviews Carousel",
-      "settings": {
-        "button_label": "",
-        "button_link": ""
-      }
+      "settings": {}
+    },
+    "why_choose_us_gFDKcc": {
+      "type": "Why-Choose-Us",
+      "name": "Why Choose Us",
+      "settings": {}
     },
     "899856179604056102": {
       "type": "apps",
@@ -174,8 +171,8 @@
     "cat_hero_banner_e93Hzi",
     "category_overlay_WDHNzd",
     "featured_collection",
-    "why_choose_us_gFDKcc",
     "customer_reviews_dRbn9m",
+    "why_choose_us_gFDKcc",
     "899856179604056102"
   ]
 }
