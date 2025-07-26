@@ -8,14 +8,18 @@
   font-family: 'Helvetica Neue', sans-serif;
 }
 
+.category-section {
+  background-color: #fff7fb;
+  padding: 60px 3vw;
+}
+
 .category-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   gap: 20px;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 40px 1.5rem;
 }
 
 .category-grid__item {
@@ -109,29 +113,31 @@
   <h2 class="category-overlay__title">{{ section.settings.title }}</h2>
 {% endif %}
 
-<div class="category-grid">
-  {% assign blocks = section.blocks | slice: 0, 5 %}
-  {% for block in blocks %}
-    <div class="category-grid__item {% if forloop.first %}category-grid__item--large{% endif %}">
-      {% if block.settings.image %}
-        <img
-          src="{{ block.settings.image | image_url: width: 1200 }}"
-          width="1200"
-          height="900"
-          alt="{{ block.settings.title }}"
-          class="category-grid__image"
-          loading="lazy"
-        >
-      {% endif %}
-      {% if block.settings.link %}
-        <a href="{{ block.settings.link }}" class="category-grid__link">
-          {{ block.settings.title }}
-          <span>&rarr;</span>
-        </a>
-      {% endif %}
-    </div>
-  {% endfor %}
-</div>
+<section class="category-section">
+  <div class="category-grid">
+    {% assign blocks = section.blocks | slice: 0, 5 %}
+    {% for block in blocks %}
+      <div class="category-grid__item {% if forloop.first %}category-grid__item--large{% endif %}">
+        {% if block.settings.image %}
+          <img
+            src="{{ block.settings.image | image_url: width: 1200 }}"
+            width="1200"
+            height="900"
+            alt="{{ block.settings.title }}"
+            class="category-grid__image"
+            loading="lazy"
+          >
+        {% endif %}
+        {% if block.settings.link %}
+          <a href="{{ block.settings.link }}" class="category-grid__link">
+            {{ block.settings.title }}
+            <span>&rarr;</span>
+          </a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
 
 {% schema %}
 {
