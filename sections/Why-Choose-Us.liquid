@@ -71,21 +71,36 @@
 
 <section class="why-choose-us">
   <h2 class="why-choose-us__title">Why Choose Us</h2>
-  <div class="why-choose-us__subtitle">
-    We’re more than a pet store — we’re your companion in care, comfort and play.
-  </div>
+  <div class="why-choose-us__subtitle">We’re more than a pet store — we’re your companion in care, comfort and play.</div>
   <div class="why-choose-us__features">
-    {% for block in section.blocks %}
-      <div class="why-choose-us__feature">
-        <div class="why-choose-us__icon">
-          {% if block.settings.icon %}
-            <img src="{{ block.settings.icon | image_url: width: 100 }}" alt="{{ block.settings.title }}">
-          {% endif %}
-        </div>
-        <div class="why-choose-us__heading">{{ block.settings.title }}</div>
-        <div class="why-choose-us__text">{{ block.settings.text }}</div>
+    <div class="why-choose-us__feature">
+      <div class="why-choose-us__icon">
+        <img src="https://cdn.shopify.com/s/files/1/u17kc2-3m/files/shipping-icon.svg" alt="Pet Design Icon">
       </div>
-    {% endfor %}
+      <div class="why-choose-us__heading">Pet-Centric Design</div>
+      <div class="why-choose-us__text">Every detail is crafted with cats in mind — from cozy materials to playful forms they adore.</div>
+    </div>
+    <div class="why-choose-us__feature">
+      <div class="why-choose-us__icon">
+        <img src="https://cdn.shopify.com/s/files/1/u17kc2-3m/files/shipping-icon.svg" alt="Shipping Icon">
+      </div>
+      <div class="why-choose-us__heading">Fast Global Shipping</div>
+      <div class="why-choose-us__text">From our warehouse to your home — fast, trackable, and worry-free delivery anywhere you are.</div>
+    </div>
+    <div class="why-choose-us__feature">
+      <div class="why-choose-us__icon">
+        <img src="https://cdn.shopify.com/s/files/1/u17kc2-3m/files/support-icon.svg" alt="Support Icon">
+      </div>
+      <div class="why-choose-us__heading">Human Support</div>
+      <div class="why-choose-us__text">Talk to real people who care. Our support team is always here to help — no bots, no fuss.</div>
+    </div>
+    <div class="why-choose-us__feature">
+      <div class="why-choose-us__icon">
+        <img src="https://cdn.shopify.com/s/files/1/u17kc2-3m/files/eco-icon.svg" alt="Eco Icon">
+      </div>
+      <div class="why-choose-us__heading">Sustainable Products</div>
+      <div class="why-choose-us__text">We choose materials that are gentle on the planet — and perfect for your pet’s well-being.</div>
+    </div>
   </div>
 </section>
 
@@ -93,61 +108,10 @@
 {
   "name": "Why Choose Us",
   "settings": [],
-  "blocks": [
-    {
-      "type": "feature",
-      "name": "Feature",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "icon",
-          "label": "Icon Image"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Heading",
-          "default": "Pet-Centric Design"
-        },
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Description",
-          "default": "Every detail is crafted with cats in mind — from cozy materials to playful forms they adore."
-        }
-      ]
-    }
-  ],
   "presets": [
     {
       "name": "Why Choose Us",
-      "category": "Custom",
-      "blocks": [
-        {
-          "type": "feature",
-          "settings": {
-            "title": "Pet-Centric Design"
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "title": "Fast Global Shipping"
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "title": "Human Support"
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "title": "Sustainable Products"
-          }
-        }
-      ]
+      "category": "Custom"
     }
   ]
 }
