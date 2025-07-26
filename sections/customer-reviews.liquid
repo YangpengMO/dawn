@@ -1,123 +1,84 @@
 {% stylesheet %}
-.testimonial-banner {
-  background-color: #ffcbe3;
+.static-reviews {
+  background-color: #f3f7f9;
   text-align: center;
   padding: 80px 20px;
-  position: relative;
-  overflow: hidden;
 }
 
-.testimonial-heading {
+.static-reviews .stars {
+  font-size: 20px;
+  color: #ccc;
+  margin-bottom: 12px;
+  letter-spacing: 4px;
+}
+
+.static-reviews h2 {
   font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 40px;
-  color: #000;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #222;
 }
 
-.testimonial-slider {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: 100%;
-  max-width: 800px;
+.static-reviews .subheading {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.testimonial-slide {
-  min-width: 100%;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-.testimonial-text {
-  font-size: 18px;
-  color: #333;
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-.testimonial-author {
+.review-item {
   font-size: 16px;
-  font-weight: 500;
-  color: #666;
+  color: #333;
+  line-height: 1.8;
+  font-style: normal;
 }
 
-.testimonial-dots {
-  margin-top: 30px;
-}
-
-.testimonial-dots .dot {
-  height: 10px;
-  width: 10px;
-  margin: 0 6px;
-  background-color: #999;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.3s;
-  cursor: pointer;
-}
-.testimonial-dots .dot.active {
-  background-color: #000;
+.review-item .author {
+  display: block;
+  font-size: 15px;
+  font-style: italic;
+  margin-top: 16px;
+  color: #000;
 }
 {% endstylesheet %}
 
-<div class="testimonial-banner">
+<section class="static-reviews">
   <div class="stars">★ ★ ★ ★ ★</div>
-  <div class="testimonial-heading">{{ section.settings.heading_text }}</div>
-  <div class="testimonial-slider" id="testimonialSlider">
+  <h2>{{ section.settings.heading }}</h2>
+  {% if section.settings.subheading != blank %}
+    <div class="subheading">{{ section.settings.subheading }}</div>
+  {% endif %}
+
+  <div class="review-grid">
     {% for block in section.blocks %}
-      <div class="testimonial-slide">
-        <p class="testimonial-text">“{{ block.settings.text }}”</p>
+      <div class="review-item">
+        “{{ block.settings.text }}”
         {% if block.settings.author != blank %}
-          <div class="testimonial-author">– {{ block.settings.author }}</div>
+          <span class="author">– {{ block.settings.author }}</span>
         {% endif %}
       </div>
     {% endfor %}
   </div>
-  <div class="testimonial-dots" id="testimonialDots">
-    {% for block in section.blocks %}
-      <span class="dot{% if forloop.first %} active{% endif %}" data-index="{{ forloop.index0 }}"></span>
-    {% endfor %}
-  </div>
-</div>
-
-<script>
-  let currentIndex = 0;
-  const slides = document.querySelectorAll(".testimonial-slide");
-  const dots = document.querySelectorAll(".testimonial-dots .dot");
-
-  function showSlide(index) {
-    const slider = document.getElementById("testimonialSlider");
-    slider.style.transform = `translateX(-${index * 100}%)`;
-
-    dots.forEach(dot => dot.classList.remove("active"));
-    if (dots[index]) dots[index].classList.add("active");
-  }
-
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
-  }
-
-  dots.forEach(dot => {
-    dot.addEventListener("click", function () {
-      currentIndex = parseInt(this.dataset.index);
-      showSlide(currentIndex);
-    });
-  });
-
-  setInterval(nextSlide, 5000);
-</script>
+</section>
 
 {% schema %}
 {
-  "name": "Testimonial Banner",
-  "tag": "section",
-  "class": "section",
+  "name": "Static Review Grid",
   "settings": [
     {
       "type": "text",
-      "id": "heading_text",
-      "label": "Heading Text",
+      "id": "heading",
+      "label": "Main Heading",
       "default": "Making Tails Wag"
     },
     {
