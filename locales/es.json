@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -535,6 +544,30 @@
       "send_on_label": "Enviar el (opcional)",
       "expanded": "Formulario del destinatario de la tarjeta de regalo expandido",
       "collapsed": "Formulario del destinatario de tarjeta de regalo contraído"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "shipping_errors": {
+        "unavailable_addresses_only_countries": "Tu pedido solo se puede enviar a {{countriesList}} . Agrega una nueva dirección para continuar."
+      },
+      "order_review_requirement": {
+        "checkout_to_draft": "La ubicación de la empresa está configurada para enviar todos los pedidos como borradores para su revisión.",
+        "missing_address": "No hay dirección de envío disponible: falta la dirección de ubicación de la empresa y el uso de dirección por única vez está deshabilitado."
+      },
+      "local_pickup": {
+        "location_information_next": {
+          "one": "Hay %{count} ubicación con stock cerca de ti",
+          "other": "Hay %{count} ubicaciones con stock cerca de ti"
+        }
+      },
+      "one": {
+        "errors": {
+          "merchandise": {
+            "signature_mismatch": "No hay coincidencia en la firma de mercancía para la línea {{stable_id}} ."
+          }
+        }
+      }
     }
   }
 }
